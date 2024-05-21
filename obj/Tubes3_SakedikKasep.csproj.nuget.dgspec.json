@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj": {}
+    "C:\\hul\\S4\\stima\\Tubes3\\a\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj": {}
   },
   "projects": {
-    "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj": {
+    "C:\\hul\\S4\\stima\\Tubes3\\a\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
+        "projectUniqueName": "C:\\hul\\S4\\stima\\Tubes3\\a\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
         "projectName": "Tubes3_SakedikKasep",
-        "projectPath": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
-        "packagesPath": "C:\\Users\\saput\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\obj\\",
+        "projectPath": "C:\\hul\\S4\\stima\\Tubes3\\a\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
+        "packagesPath": "C:\\Users\\preda\\.nuget\\packages\\",
+        "outputPath": "C:\\hul\\S4\\stima\\Tubes3\\a\\Tubes3_SakedikKasep\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\saput\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\preda\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,6 +42,12 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -63,7 +67,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
