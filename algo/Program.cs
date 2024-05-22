@@ -181,7 +181,7 @@ public static class KMPAlgorithm
             {
                 if (j == m - 1)
                 {
-                    return i - m + 1; // Match found
+                    return i - m + 1;
                 }
                 i++;
                 j++;
@@ -195,7 +195,7 @@ public static class KMPAlgorithm
                 i++;
             }
         }
-        return -1; // No match found
+        return -1;
     }
 
     public static int[] ComputeBorder(string pattern)
@@ -229,6 +229,36 @@ public static class KMPAlgorithm
             }
         }
         return b;
+    }
+
+    public static double CalculateLevenshteinSimilarity(string str1, string str2)
+    {
+        int len1 = str1.Length;
+        int len2 = str2.Length;
+        int[,] dp = new int[len1 + 1, len2 + 1];
+
+        for (int i = 0; i <= len1; i++)
+        {
+            dp[i, 0] = i;
+        }
+
+        for (int j = 0; j <= len2; j++)
+        {
+            dp[0, j] = j;
+        }
+
+        for (int i = 1; i <= len1; i++)
+        {
+            for (int j = 1; j <= len2; j++)
+            {
+                int cost = (str1[i - 1] == str2[j - 1]) ? 0 : 1;
+                dp[i, j] = Math.Min(Math.Min(dp[i - 1, j] + 1, dp[i, j - 1] + 1), dp[i - 1, j - 1] + cost);
+            }
+        }
+
+        int maxLen = Math.Max(len1, len2);
+        double similarity = 1.0 - (double)dp[len1, len2] / maxLen;
+        return similarity * 100.0; // Dalam bentuk persentase
     }
 }
 
@@ -265,6 +295,34 @@ public class ImageProcessor
 
 class Program
 {
+    // static void Main()
+    // {
+    //     // Path to the input image
+    //     string imagePath = "2.bmp";
+    //     // string imagePath2 = "3.bmp";
+
+    //     // Load the image
+    //     Bitmap ori2 = new Bitmap(imagePath);
+    //     Bitmap bitmap = ImageProcessor.GetCenterCrop(ori2, ori2.Width, 1);
+    //     Bitmap originalImage = new Bitmap(imagePath);
+
+    //     string croppedImagePath = "7.bmp";
+    //     bitmap.Save(croppedImagePath);
+
+    //     string asciiArt = BitmapToBinaryAsciiConverter.ConvertToAscii(bitmap);
+    //     string oir = BitmapToBinaryAsciiConverter.ConvertToAscii(originalImage);
+
+    //     double position = BoyerMoore.BmMatch(oir, asciiArt);
+
+    //     if (position != -1)
+    //     {
+    //         Console.WriteLine($"Pattern found at position: {position}");
+    //     }
+    //     else
+    //     {
+    //         Console.WriteLine("Pattern not found.");
+    //     }
+    // }
     static void Main()
     {
         // Path to the input image
@@ -282,7 +340,7 @@ class Program
         string asciiArt = BitmapToBinaryAsciiConverter.ConvertToAscii(bitmap);
         string oir = BitmapToBinaryAsciiConverter.ConvertToAscii(originalImage);
 
-        double position = BoyerMoore.BmMatch(oir, asciiArt);
+        double position = KMPAlgorithm.KmpMatch(oir, asciiArt);
 
         if (position != -1)
         {

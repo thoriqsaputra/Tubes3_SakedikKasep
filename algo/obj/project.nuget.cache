@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "tZ4hcfq148gpzsAxRLXCZpqsvbL+EbftEfBt6ALGxJr00a68z4y2KN4lrNgfYp7ZeCn0WWRy96YchPmpyMK3mg==",
+  "dgSpecHash": "dyjiFNSIF28=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\algo\\firstapp.csproj",
+  "projectFilePath": "/home/qika/Documents/Coolyeah/Tubes3_SakedikKasep/algo/firstapp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
-    "C:\\Users\\ASUS\\.nuget\\packages\\sixlabors.imagesharp\\3.1.4\\sixlabors.imagesharp.3.1.4.nupkg.sha512",
-    "C:\\Users\\ASUS\\.nuget\\packages\\system.drawing.common\\8.0.5\\system.drawing.common.8.0.5.nupkg.sha512"
+    "/home/qika/.nuget/packages/microsoft.win32.systemevents/8.0.0/microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "/home/qika/.nuget/packages/sixlabors.imagesharp/3.1.4/sixlabors.imagesharp.3.1.4.nupkg.sha512",
+    "/home/qika/.nuget/packages/system.drawing.common/8.0.5/system.drawing.common.8.0.5.nupkg.sha512"
   ],
   "logs": []
 }
