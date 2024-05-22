@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "2D1+k9R9L0A=",
+  "dgSpecHash": "tZ4hcfq148gpzsAxRLXCZpqsvbL+EbftEfBt6ALGxJr00a68z4y2KN4lrNgfYp7ZeCn0WWRy96YchPmpyMK3mg==",
   "success": true,
-  "projectFilePath": "C:\\hul\\S4\\stima\\Tubes3\\a\\Tubes3_SakedikKasep\\algo\\firstapp.csproj",
+  "projectFilePath": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\algo\\firstapp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\preda\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
-    "C:\\Users\\preda\\.nuget\\packages\\sixlabors.imagesharp\\3.1.4\\sixlabors.imagesharp.3.1.4.nupkg.sha512",
-    "C:\\Users\\preda\\.nuget\\packages\\system.drawing.common\\8.0.5\\system.drawing.common.8.0.5.nupkg.sha512"
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\sixlabors.imagesharp\\3.1.4\\sixlabors.imagesharp.3.1.4.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\system.drawing.common\\8.0.5\\system.drawing.common.8.0.5.nupkg.sha512"
   ],
   "logs": []
 }
