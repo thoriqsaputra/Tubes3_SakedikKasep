@@ -167,7 +167,7 @@ public class BoyerMoore
 
 public static class KMPAlgorithm
 {
-    public static int KmpMatch(string text, string pattern)
+    public static (double similarity, int position) KmpMatch(string text, string pattern)
     {
         int n = text.Length;
         int m = pattern.Length;
@@ -175,16 +175,28 @@ public static class KMPAlgorithm
         int i = 0;
         int j = 0;
 
+        double maxSimilarity = 0;
+        int bestPosition = -1;
+
         while (i < n)
         {
             if (pattern[j] == text[i])
             {
                 if (j == m - 1)
                 {
-                    return i - m + 1;
+                    double similarity = CalculateLevenshteinSimilarity(text.Substring(i - m + 1, m), pattern);
+                    if (similarity > maxSimilarity)
+                    {
+                        maxSimilarity = similarity;
+                        bestPosition = i - m + 1;
+                    }
+                    j = b[j];
                 }
-                i++;
-                j++;
+                else
+                {
+                    i++;
+                    j++;
+                }
             }
             else if (j > 0)
             {
@@ -195,7 +207,8 @@ public static class KMPAlgorithm
                 i++;
             }
         }
-        return -1;
+
+        return (maxSimilarity, bestPosition);
     }
 
     public static int[] ComputeBorder(string pattern)
@@ -258,7 +271,7 @@ public static class KMPAlgorithm
 
         int maxLen = Math.Max(len1, len2);
         double similarity = 1.0 - (double)dp[len1, len2] / maxLen;
-        return similarity * 100.0; // Dalam bentuk persentase
+        return similarity;
     }
 }
 
@@ -295,34 +308,6 @@ public class ImageProcessor
 
 class Program
 {
-    // static void Main()
-    // {
-    //     // Path to the input image
-    //     string imagePath = "2.bmp";
-    //     // string imagePath2 = "3.bmp";
-
-    //     // Load the image
-    //     Bitmap ori2 = new Bitmap(imagePath);
-    //     Bitmap bitmap = ImageProcessor.GetCenterCrop(ori2, ori2.Width, 1);
-    //     Bitmap originalImage = new Bitmap(imagePath);
-
-    //     string croppedImagePath = "7.bmp";
-    //     bitmap.Save(croppedImagePath);
-
-    //     string asciiArt = BitmapToBinaryAsciiConverter.ConvertToAscii(bitmap);
-    //     string oir = BitmapToBinaryAsciiConverter.ConvertToAscii(originalImage);
-
-    //     double position = BoyerMoore.BmMatch(oir, asciiArt);
-
-    //     if (position != -1)
-    //     {
-    //         Console.WriteLine($"Pattern found at position: {position}");
-    //     }
-    //     else
-    //     {
-    //         Console.WriteLine("Pattern not found.");
-    //     }
-    // }
     static void Main()
     {
         // Path to the input image
@@ -340,7 +325,7 @@ class Program
         string asciiArt = BitmapToBinaryAsciiConverter.ConvertToAscii(bitmap);
         string oir = BitmapToBinaryAsciiConverter.ConvertToAscii(originalImage);
 
-        double position = KMPAlgorithm.KmpMatch(oir, asciiArt);
+        double position = BoyerMoore.BmMatch(oir, asciiArt);
 
         if (position != -1)
         {
@@ -351,6 +336,31 @@ class Program
             Console.WriteLine("Pattern not found.");
         }
     }
+    // static void Main()
+    // {
+    //     string imagePath = "2.bmp";
+
+    //     Bitmap ori2 = new Bitmap(imagePath);
+    //     Bitmap bitmap = ImageProcessor.GetCenterCrop(ori2, ori2.Width, 1);
+    //     Bitmap originalImage = new Bitmap(imagePath);
+
+    //     string croppedImagePath = "8.bmp";
+    //     bitmap.Save(croppedImagePath);
+
+    //     string asciiArt = BitmapToBinaryAsciiConverter.ConvertToAscii(bitmap);
+    //     string oir = BitmapToBinaryAsciiConverter.ConvertToAscii(originalImage);
+
+    //     var result = KMPAlgorithm.KmpMatch(oir, asciiArt);
+
+    //     if (result.position != -1)
+    //     {
+    //         Console.WriteLine($"Pattern found at position: {result.position} with similarity: {result.similarity:F4}");
+    //     }
+    //     else
+    //     {
+    //         Console.WriteLine("Pattern not found.");
+    //     }
+    // }
 }
 
 
