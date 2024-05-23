@@ -1,5 +1,23 @@
-C:\hul\S4\stima\Tubes3\a\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.csproj.AssemblyReference.cache
-C:\hul\S4\stima\Tubes3\a\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\MainWindow.g.cs
-C:\hul\S4\stima\Tubes3\a\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\App.g.cs
-C:\hul\S4\stima\Tubes3\a\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep_MarkupCompile.cache
-C:\hul\S4\stima\Tubes3\a\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep_MarkupCompile.lref
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\Tubes3_SakedikKasep.exe
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\Tubes3_SakedikKasep.deps.json
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\Tubes3_SakedikKasep.runtimeconfig.json
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\Tubes3_SakedikKasep.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\Tubes3_SakedikKasep.pdb
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep_MarkupCompile.cache
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep_MarkupCompile.lref
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.g.resources
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.AssemblyInfoInputs.cache
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.AssemblyInfo.cs
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.csproj.CoreCompileInputs.cache
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\refint\Tubes3_SakedikKasep.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.pdb
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.genruntimeconfig.cache
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\ref\Tubes3_SakedikKasep.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\bioDetails.g.cs
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\bioDetails.baml
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.sourcelink.json

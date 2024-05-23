@@ -3,12 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Tubes3_SakedikKasep"
         mc:Ignorable="d"
         Height="720" Width="1080" 
         WindowStartupLocation="CenterScreen" 
-        ResizeMode="CanResize" 
         Background="Transparent"
         WindowStyle="None"
         AllowsTransparency="True" >
@@ -18,26 +16,410 @@
         CornerRadius="12">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="67*"/>
+                <ColumnDefinition Width="41*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
             <Grid Grid.ColumnSpan="2">
                 <Border CornerRadius="12 12 0 0" 
                         Background="#030637">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="FingerMeScanner"
+                                   FontSize="23"
+                                   FontFamily="Font/#Marcellus"
+                                   FontWeight="DemiBold"
+                                   Grid.Column="1"
+                                   Grid.ColumnSpan="2"
+                                   Foreground="Wheat"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left" Margin="9,0,0,0"
+                                
+                            />
+                        <Image HorizontalAlignment="Right" 
+                               Height="44"
+                               Source="Image/logoDimon.png"
+                               RenderOptions.BitmapScalingMode="HighQuality"
+                               VerticalAlignment="Top"
+                               Width="44"
+                               Grid.Column="0" Margin="0,3,0,0"/>
 
+                        <Image x:Name="powerOff" HorizontalAlignment="Center" 
+                               Height="42"
+                               Source="Image/renam.png"
+                               Cursor="Hand"
+                               RenderOptions.BitmapScalingMode="HighQuality"
+                               VerticalAlignment="Center"
+                               Width="42"
+                               Grid.Column="9" MouseLeftButtonDown="closeWindow"/>
+
+                    </Grid>
                 </Border>
             </Grid>
-            <TextBlock VerticalAlignment="Center"
-                        Margin="50 0 0 0"
-                        Text="FingerMeScanner"
-                        FontSize="30"
-                        Foreground="#910A67"
-                        />
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90*"/>
+                    <RowDefinition Height="31*"/>
+                </Grid.RowDefinitions>
+
+                <Border x:Name="fingerme" Width="300"
+                        Cursor="Hand"
+                        Height="400"
+                        Background="AliceBlue"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Grid.Column="0"
+                        CornerRadius="10"
+                        BorderBrush="BlanchedAlmond"
+                        BorderThickness="5" MouseLeftButtonDown="uploadImage">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="56*"/>
+                            <RowDefinition Height="9*"/>
+                        </Grid.RowDefinitions>
+
+
+                        <Image x:Name="imgUpld"
+                               Grid.RowSpan="2"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               RenderOptions.BitmapScalingMode="HighQuality" 
+                            />
+                        <Image
+                            x:Name="fingerImg"
+                            Source="Image/fingerIn.png"
+                            Grid.RowSpan="2"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Center"
+                            Height="300"
+                            Width="300" Margin="0,45,0,0"/>
+                        <TextBlock Text="FINGER ME!!"
+                                   x:Name="txtFinger"
+                                   FontFamily="Font/#Danfo"
+                                   Grid.Row="1"
+                                   HorizontalAlignment="Center" 
+                                  FontSize="25"
+                                   FontWeight="Medium"
+                                   Foreground="DarkCyan"/>
+
+                    </Grid>
+
+                </Border>
+
+                <Border Width="300"
+                        Height="400"
+                        Background="AliceBlue"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Grid.Column="1"
+                        CornerRadius="10"
+                        BorderBrush="BlanchedAlmond"
+                        BorderThickness="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="56*"/>
+                            <RowDefinition Height="9*"/>
+                        </Grid.RowDefinitions>
+                        <Image x:Name="imgResult"
+                               Grid.RowSpan="2"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               RenderOptions.BitmapScalingMode="HighQuality" 
+                            />
+                        <Image
+                            x:Name="matchP"
+                            Source="Image/pair.png"
+                            Grid.RowSpan="2"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Center"
+                            Height="300"
+                            Width="300" Margin="0,45,0,0"/>
+                        <TextBlock Text="Matching Print Will Be Here"
+                                   x:Name="textMatch"
+                                   Grid.Row="1"
+                                   HorizontalAlignment="Center" 
+                                  FontSize="20"
+                                   FontFamily="Font/#Righteous"
+                                   FontWeight="Medium"
+                                   Foreground="BLACK" Margin="0,3,0,-3" />
+                    </Grid>
+
+                </Border>
+
+                <Button Grid.Row="1"
+                        Grid.Column="1"
+                        Height="60"
+                        Width="200"
+                        Content="START"
+                        FontSize="40"
+                        FontWeight="Medium"
+                        FontFamily="Font/#Righteous"
+                        Name="StartButton"
+                        >
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="DarkCyan"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="BorderBrush" Value="DarkCyan"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="DarkSlateGray"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="20"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="2">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+
+                <Border Grid.Row="1"
+                        Background="BlanchedAlmond"
+                        Width="260"
+                        Height="60"
+                        CornerRadius="10"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        >
+                    <StackPanel Orientation="Horizontal">
+                        <Button Width="130"
+                                Height="60"
+                                Content="KMP"
+                                FontSize="30"
+                                FontWeight="Medium"
+                                FontFamily="Font/#Righteous"
+                                Name="KMPButton"
+                                Click="selectAlgo"
+                                >
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="IndianRed"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderBrush" Value="BlanchedAlmond"/>
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Firebrick"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border CornerRadius="10 5 5 10"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="2">
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <Button Width="130"
+                                Height="60"
+                                Content="BM"
+                                FontSize="30"
+                                FontWeight="Medium"
+                                FontFamily="Font/#Righteous"
+                                Name="BMButton"
+                                Click="selectAlgo"
+                                >
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="DarkCyan"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderBrush" Value="BlanchedAlmond"/>
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="DarkSlateGray"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border CornerRadius="5 10 10 5"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="2">
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </StackPanel>
+
+                </Border>
+
+            </Grid>
+
+            <Grid Grid.Column="1"
+                  Grid.Row="1"
+                  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="160*"/>
+                    <RowDefinition Height="175*"/>
+                    <RowDefinition Height="168*"/>
+                    <RowDefinition Height="168*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0"
+                        Background="Lavender"
+                        Width="350"
+                        Height="110"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Center"
+                        CornerRadius="5" Margin="0,48,0,0">
+                    <Grid Margin="10 10 10 10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.RowSpan="1">
+                            <TextBlock Text="Time Executed:"
+                                       FontFamily="Font/#Marcellus"
+                                       FontSize="22"
+                                       FontWeight="Bold"
+                                       Foreground="DarkCyan"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center" Margin="10,0,0,0"/>
+                            <TextBlock Text="00:00:00"
+                                       x:Name="TimeTaken"
+                                       FontFamily="Font/#Marcellus"
+                                       FontSize="22"
+                                       FontWeight="Bold"
+                                       Foreground="DarkCyan"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center" Margin="10,0,0,0"/>
+                        </StackPanel>
+
+
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Row="1">
+                            <TextBlock Text="Percentage of Similarity:"
+                                       FontFamily="Font/#Marcellus"
+                                       FontSize="22"
+                                       FontWeight="Bold"
+                                       Foreground="DarkCyan"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Grid.Row="1" Margin="10,0,0,0"/>
+                            <TextBlock Text="0%"
+                                       x:Name="persen"
+                                       FontFamily="Font/#Marcellus"
+                                       FontSize="22"
+                                       FontWeight="Bold"
+                                       Foreground="DarkCyan"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Grid.Row="1" Margin="10,0,0,0"/>
+                        </StackPanel>
+
+
+                    </Grid>
+
+                </Border>
+                <Image Source="Image/citty.png"
+                       RenderOptions.BitmapScalingMode="HighQuality" Margin="268,12,58,103"
+                       />
+
+
+
+                <StackPanel Orientation="Vertical"
+                            Grid.Row="1"
+                        Grid.RowSpan="3">
+
+                    <Label Content="List of Biodata"
+                           FontFamily="Font/#Marcellus"
+                           FontSize="20"
+                           Margin="25 0 0 5"
+                           FontWeight="Bold"
+                           Foreground="DarkCyan"
+                           HorizontalAlignment="Left" 
+                           Height="30"
+                           />
+                    <Border 
+                            Background="MediumPurple"
+                            CornerRadius="10"
+                            Height="460"
+                            Width="360"
+                            BorderBrush="AntiqueWhite"
+                            BorderThickness="2">
+
+                        <ListBox VerticalAlignment="Center"
+                                 HorizontalAlignment="Center"
+                                 Height="440"
+                                 Width="340"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"  
+                                 >
+                            <ListBoxItem>
+                                <Border Width="326"
+                                        Height="30"
+                                        CornerRadius="10"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Background="Azure">
+                                    <TextBlock Text="Dimas"
+                                               FontFamily="Font/#Marcellus"
+                                               FontSize="20"
+                                               FontWeight="Bold"
+                                               Margin="10 0 0 0"
+                                               Foreground="DarkCyan"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                            </ListBoxItem>
+                        </ListBox>
+
+                    </Border>
+
+                </StackPanel>
+
+            </Grid>
+
 
         </Grid>
 

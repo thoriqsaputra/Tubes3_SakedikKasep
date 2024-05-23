@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E06BD10D-0FB9-4C70-B210-E91361B143AE}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{E06BD10D-0FB9-4C70-B210-E91361B143AE}|Tubes3_SakedikKasep.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E06BD10D-0FB9-4C70-B210-E91361B143AE}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E06BD10D-0FB9-4C70-B210-E91361B143AE}|Tubes3_SakedikKasep.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\biodetails.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:biodetails.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\biodetails.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:biodetails.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\image\\dimon.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:image\\dimon.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\algo\\kmp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:algo\\kmp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\algo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:algo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,9 +37,60 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 255,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "bioDetails.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\bioDetails.xaml.cs",
+              "RelativeDocumentMoniker": "bioDetails.xaml.cs",
+              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\bioDetails.xaml.cs",
+              "RelativeToolTip": "bioDetails.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T17:41:32.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "dimon.png",
+              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\Image\\dimon.png",
+              "RelativeDocumentMoniker": "Image\\dimon.png",
+              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\Image\\dimon.png",
+              "RelativeToolTip": "Image\\dimon.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-05-23T17:40:21.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\algo\\Program.cs",
+              "RelativeDocumentMoniker": "algo\\Program.cs",
+              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\algo\\Program.cs",
+              "RelativeToolTip": "algo\\Program.cs",
+              "ViewState": "AQIAAG8BAAAAAAAAAAAYwKEBAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T17:25:45.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADwAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T17:15:33.859Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -29,20 +100,32 @@
               "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-20T05:11:46.338Z",
+              "WhenOpened": "2024-05-23T17:15:35.802Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
+              "DocumentIndex": 5,
+              "Title": "KMP.cs",
+              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\algo\\KMP.cs",
+              "RelativeDocumentMoniker": "algo\\KMP.cs",
+              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\algo\\KMP.cs",
+              "RelativeToolTip": "algo\\KMP.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T05:11:44.125Z",
+              "WhenOpened": "2024-05-23T17:32:30.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "bioDetails.xaml",
+              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\bioDetails.xaml",
+              "RelativeDocumentMoniker": "bioDetails.xaml",
+              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\bioDetails.xaml",
+              "RelativeToolTip": "bioDetails.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-23T17:25:11.367Z",
               "EditorCaption": ""
             }
           ]

@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hcemBG3E1cI=",
+  "dgSpecHash": "oJhKGdI9KgQastR8P5FVIj8wWu7JTzyjygc+2NLJF7bRcoNPEZyU5naxKXzNFwNpK8z0RRi7VpiWTFQUKVtFQw==",
   "success": true,
-  "projectFilePath": "C:\\hul\\S4\\stima\\Tubes3\\a\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\preda\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
-    "C:\\Users\\preda\\.nuget\\packages\\system.drawing.common\\8.0.5\\system.drawing.common.8.0.5.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

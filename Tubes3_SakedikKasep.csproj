@@ -9,7 +9,29 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Drawing.Common" Version="8.0.5" />
+    <None Remove="Font\Danfo.ttf" />
+    <None Remove="Font\Marcellus.ttf" />
+    <None Remove="Font\Righteous.ttf" />
+    <None Remove="Image\citty.png" />
+    <None Remove="Image\dimon.png" />
+    <None Remove="Image\fingerIn.png" />
+    <None Remove="Image\logoDimon.png" />
+    <None Remove="Image\pair.png" />
+    <None Remove="Image\remove.png" />
+    <None Remove="Image\renam.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Font\Danfo.ttf" />
+    <Resource Include="Font\Marcellus.ttf" />
+    <Resource Include="Font\Righteous.ttf" />
+    <Resource Include="Image\citty.png" />
+    <Resource Include="Image\dimon.png" />
+    <Resource Include="Image\fingerIn.png" />
+    <Resource Include="Image\logoDimon.png" />
+    <Resource Include="Image\pair.png" />
+    <Resource Include="Image\remove.png" />
+    <Resource Include="Image\renam.png" />
   </ItemGroup>
 
 </Project>
