@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Globalization;
+using System.Text.RegularExpressions;
 public class ImageResizer
 {
     public static Bitmap ResizeImage(string sourcePath, int width, int height)
@@ -277,6 +279,40 @@ public static class KMPAlgorithm
     }
 }
 
+class StringFormatter
+{
+    public string FormatString(string input)
+    {
+        // Mengganti angka dengan huruf yang sesuai menggunakan regex
+        string replaced = Regex.Replace(input, @"\d+", match =>
+        {
+            switch (match.Value)
+            {
+                case "4":
+                    return "a";
+                case "1":
+                    return "i";
+                case "6":
+                    return "g";
+                case "9":
+                    return "g";
+                case "13":
+                    return "b";
+                default:
+                    return "";
+            }
+        });
+
+        // Membuat semua huruf menjadi kecil
+        string lowerCase = replaced.ToLower();
+
+        // Membuat huruf pertama dari setiap kata menjadi kapital
+        TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+        string properCase = textInfo.ToTitleCase(lowerCase);
+
+        return properCase;
+    }
+}
 public class ImageProcessor
 {
     public static Bitmap GetCenterCrop(Bitmap originalImage, int cropWidth, int cropHeight)
