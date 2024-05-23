@@ -1,0 +1,5 @@
+C:\hul\S4\stima\Tubes3\a\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.csproj.AssemblyReference.cache
+C:\hul\S4\stima\Tubes3\a\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\hul\S4\stima\Tubes3\a\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\App.g.cs
+C:\hul\S4\stima\Tubes3\a\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep_MarkupCompile.cache
+C:\hul\S4\stima\Tubes3\a\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep_MarkupCompile.lref

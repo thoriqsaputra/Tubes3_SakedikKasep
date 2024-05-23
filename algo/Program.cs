@@ -101,8 +101,10 @@ public class BoyerMoore
         {
             if (pattern[j] == text[i])
             {
-                if (j == 0)
-                    return CalculateLevenshteinSimilarity(text,pattern); // Pola ditemukan
+                if (j == 0){
+                    // Console.WriteLine(CalculateLevenshteinSimilarity(text,pattern));
+                    return 1;
+                }
                 else
                 {
                     i--;
@@ -310,58 +312,64 @@ class Program
 {
     static void Main()
     {
-        // Path to the input image
-        string imagePath = "2.bmp";
-        // string imagePath2 = "3.bmp";
+        // "../img/1.BMP"
+        Console.WriteLine("Selamat datang brooo");
+        Console.Write("Silahkan masukkan path gambar yang ingin disamakan: ");
+        string name = Console.ReadLine();
+        Console.WriteLine("Pilihan algoritma: ");
+        Console.WriteLine("1. KMP");
+        Console.WriteLine("2. BM");
+        Console.Write("Masukkan pilihan algoritma dengan angka: ");
+        string algo = Console.ReadLine();
 
-        // Load the image
-        Bitmap ori2 = new Bitmap(imagePath);
-        Bitmap bitmap = ImageProcessor.GetCenterCrop(ori2, ori2.Width, 1);
-        Bitmap originalImage = new Bitmap(imagePath);
 
-        string croppedImagePath = "7.bmp";
-        bitmap.Save(croppedImagePath);
+        Bitmap patternBMP = new Bitmap(name);
+        patternBMP = ImageProcessor.GetCenterCrop(patternBMP, patternBMP.Width, 1);
 
-        string asciiArt = BitmapToBinaryAsciiConverter.ConvertToAscii(bitmap);
-        string oir = BitmapToBinaryAsciiConverter.ConvertToAscii(originalImage);
+        string folderPath = "../img";
+        string[] bmpFiles = Directory.GetFiles(folderPath, "*.bmp", SearchOption.TopDirectoryOnly);
 
-        double position = BoyerMoore.BmMatch(oir, asciiArt);
-
-        if (position != -1)
+        double maxSimilarity=0;
+        var path="";
+        foreach (var bmpPath in bmpFiles)
         {
-            Console.WriteLine($"Pattern found at position: {position}");
+
+            if (algo == "1"){
+                Bitmap bmp = new Bitmap(bmpPath);
+                string asciiArt = BitmapToBinaryAsciiConverter.ConvertToAscii(patternBMP);
+                string oir = BitmapToBinaryAsciiConverter.ConvertToAscii(bmp);
+                var result = KMPAlgorithm.KmpMatch(oir, asciiArt);
+                if (result.similarity==1){
+                    maxSimilarity=result.similarity;
+                    path=bmpPath;
+                    break;
+                }
+                if (result.similarity>maxSimilarity){
+                    maxSimilarity=result.similarity;
+                    path=bmpPath;
+                }
+            }else{
+                Bitmap bmp = new Bitmap(bmpPath);
+                string asciiArt = BitmapToBinaryAsciiConverter.ConvertToAscii(patternBMP);
+                string oir = BitmapToBinaryAsciiConverter.ConvertToAscii(bmp);
+                double similarity = BoyerMoore.BmMatch(oir, asciiArt);
+                if (similarity==1){
+                    maxSimilarity=similarity;
+                    path=bmpPath;
+                    break;
+                }
+                if (similarity>maxSimilarity){
+                    maxSimilarity=similarity;
+                    path=bmpPath;
+                }
+            }
         }
-        else
-        {
-            Console.WriteLine("Pattern not found.");
-        }
+        Console.Write("path yang sama: ");
+        Console.WriteLine(path);
+        Console.Write("similarity: ");
+        Console.WriteLine(maxSimilarity);
+        
     }
-    // static void Main()
-    // {
-    //     string imagePath = "2.bmp";
-
-    //     Bitmap ori2 = new Bitmap(imagePath);
-    //     Bitmap bitmap = ImageProcessor.GetCenterCrop(ori2, ori2.Width, 1);
-    //     Bitmap originalImage = new Bitmap(imagePath);
-
-    //     string croppedImagePath = "8.bmp";
-    //     bitmap.Save(croppedImagePath);
-
-    //     string asciiArt = BitmapToBinaryAsciiConverter.ConvertToAscii(bitmap);
-    //     string oir = BitmapToBinaryAsciiConverter.ConvertToAscii(originalImage);
-
-    //     var result = KMPAlgorithm.KmpMatch(oir, asciiArt);
-
-    //     if (result.position != -1)
-    //     {
-    //         Console.WriteLine($"Pattern found at position: {result.position} with similarity: {result.similarity:F4}");
-    //     }
-    //     else
-    //     {
-    //         Console.WriteLine("Pattern not found.");
-    //     }
-    // }
+    
 }
-
-
 

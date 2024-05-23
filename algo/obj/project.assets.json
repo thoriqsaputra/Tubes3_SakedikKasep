@@ -161,19 +161,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ASUS\\.nuget\\packages\\": {}
+    "C:\\Users\\preda\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\algo\\firstapp.csproj",
+      "projectUniqueName": "C:\\hul\\S4\\stima\\Tubes3\\a\\Tubes3_SakedikKasep\\algo\\firstapp.csproj",
       "projectName": "firstapp",
-      "projectPath": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\algo\\firstapp.csproj",
-      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\algo\\obj\\",
+      "projectPath": "C:\\hul\\S4\\stima\\Tubes3\\a\\Tubes3_SakedikKasep\\algo\\firstapp.csproj",
+      "packagesPath": "C:\\Users\\preda\\.nuget\\packages\\",
+      "outputPath": "C:\\hul\\S4\\stima\\Tubes3\\a\\Tubes3_SakedikKasep\\algo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\preda\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -191,6 +191,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -222,7 +227,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
