@@ -40,15 +40,12 @@ public class AlayConverter
                 }
             }
         }
-        reverseReplacements["12"] = "r";
-        reverseReplacements["i2"] = "r";
-        reverseReplacements["I2"] = "r";
-        
+
         var sortedKeys = reverseReplacements.Keys.OrderByDescending(s => s.Length).ToList();
         regexPattern = string.Join("|", sortedKeys.Select(Regex.Escape));
     }
 
-    public static string ConvertAlay(string fullName, bool useNumberSymbol = true, bool useCaseMix = true, bool useVowelRemoval = false)
+    public static string ConvertAlay(string fullName, bool useNumberSymbol = true, bool useCaseMix = true, bool useVowelRemoval = true)
     {
         string modifiedName = fullName.ToLower();
 
@@ -64,8 +61,13 @@ public class AlayConverter
 
         if (useVowelRemoval)
         {
+            double removalProbability = 0.5;
             var vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u' };
+
             modifiedName = new string(modifiedName.Where(c => !vowels.Contains(c)).ToArray());
+            Random random = new Random();
+
+            modifiedName = new(modifiedName.Where(c => !vowels.Contains(c) || random.NextDouble() > removalProbability).ToArray());
         }
 
         return modifiedName;
