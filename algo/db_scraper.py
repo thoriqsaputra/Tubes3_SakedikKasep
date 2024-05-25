@@ -134,7 +134,7 @@ for i in range(500):
     ))
     id += 1
 
-for i in range(500):
+for i in range(499):
     data_nama = fake.name()
     c.execute('''
     INSERT INTO biodata (NIK, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, golongan_darah, alamat, agama, status_perkawinan, pekerjaan, kewarganegaraan) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)

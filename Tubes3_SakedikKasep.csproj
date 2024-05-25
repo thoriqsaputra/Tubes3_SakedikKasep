@@ -34,4 +34,9 @@
     <Resource Include="Image\renam.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.5" />
+  </ItemGroup>
+
 </Project>
