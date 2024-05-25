@@ -280,41 +280,6 @@ public static class KMPAlgorithm
        return similarity;
    }
 }
-
-class StringFormatter
-{
-   public string FormatString(string input)
-   {
-       // Mengganti angka dengan huruf yang sesuai menggunakan regex
-       string replaced = Regex.Replace(input, @"\d+", match =>
-       {
-           switch (match.Value)
-           {
-               case "4":
-                   return "a";
-               case "1":
-                   return "i";
-               case "6":
-                   return "g";
-               case "9":
-                   return "g";
-               case "13":
-                   return "b";
-               default:
-                   return "";
-           }
-       });
-
-       // Membuat semua huruf menjadi kecil
-       string lowerCase = replaced.ToLower();
-
-       // Membuat huruf pertama dari setiap kata menjadi kapital
-       TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
-       string properCase = textInfo.ToTitleCase(lowerCase);
-
-       return properCase;
-   }
-}
 public class ImageProcessor
 {
    public static Bitmap GetCenterCrop(Bitmap originalImage, int cropWidth, int cropHeight)
