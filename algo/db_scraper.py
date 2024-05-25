@@ -13,27 +13,35 @@ c = conn.cursor()
 # Membuat tabel jika belum ada
 c.execute('''
 CREATE TABLE IF NOT EXISTS biodata (
-    NIK TEXT, 
-    nama TEXT, 
-    tempat_lahir TEXT, 
-    tanggal_lahir TEXT, 
+    NIK VARCHAR(16) PRIMARY KEY NOT NULL, 
+    nama VARCHAR(100) DEFAULT NULL, 
+    tempat_lahir VARCHAR(50) DEFAULT NULL, 
+    tanggal_lahir DATE DEFAULT NULL, 
     jenis_kelamin TEXT, 
-    golongan_darah TEXT, 
-    alamat TEXT, 
-    agama TEXT, 
+    golongan_darah VARCHAR(5) DEFAULT NULL, 
+    alamat VARCHAR(255) DEFAULT NULL, 
+    agama VARCHAR(50) DEFAULT NULL, 
     status_perkawinan TEXT, 
-    pekerjaan TEXT, 
-    kewarganegaraan TEXT
+    pekerjaan VARCHAR(100) DEFAULT NULL, 
+    kewarganegaraan VARCHAR(50) DEFAULT NULL
+)
+''')
+
+c.execute('''
+CREATE TABLE IF NOT EXISTS sidik_jari (
+    berkas_citra TEXT,
+    nama VARCHAR(100) DEFAULT NULL
 )
 ''')
 
 # Generate records
-for _ in range(num_records):
+for i in range(num_records):
+    data_nama = fake.name()
     c.execute('''
     INSERT INTO biodata (NIK, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, golongan_darah, alamat, agama, status_perkawinan, pekerjaan, kewarganegaraan) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ''', (
         str(fake.unique.random_number(digits=16, fix_len=True)),
-        alay_converter_advanced(fake.name()),
+        alay_converter_advanced(data_nama, use_number_symbol=random.choice([True, False]), use_case_mix=random.choice([True, False]), use_vowel_removal=random.choice([True, False])),
         fake.city(),
         fake.date_of_birth(minimum_age=18, maximum_age=90).strftime('%Y-%m-%d'),
         random.choice(['Laki-Laki', 'Perempuan']),
@@ -43,6 +51,12 @@ for _ in range(num_records):
         random.choice(['Belum Menikah', 'Menikah', 'Cerai']),
         fake.job(),
         'Indonesia'
+    ))
+    c.execute('''
+    INSERT INTO sidik_jari (berkas_citra, nama) VALUES (?, ?)
+    ''', (
+        str(i),
+        data_nama
     ))
 
 conn.commit()
