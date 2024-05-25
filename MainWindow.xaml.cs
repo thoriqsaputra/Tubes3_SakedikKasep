@@ -20,6 +20,7 @@ using static AlayConverter;
 using System.Data.SQLite;
 using System.CodeDom.Compiler;
 using System.IO;
+using System.Diagnostics;
 
 
 namespace Tubes3_SakedikKasep
@@ -34,14 +35,16 @@ namespace Tubes3_SakedikKasep
     {
 
         public string algoritma;
-        public string img;
+        public Bitmap img;
+        private Dictionary<string, string> sidikJariMap;
+        private Dictionary<string, Dictionary<string, string>> dataMap;
 
         public MainWindow()
         {
             InitializeComponent();
             string connectionString = "Data Source=biodata.db;Version=3;";
-            Dictionary<string, string> sidikJariMap = new Dictionary<string, string>();
-            Dictionary<string, Dictionary<string, string>> dataMap = new Dictionary<string, Dictionary<string, string>>();
+            sidikJariMap = new Dictionary<string, string>();
+            dataMap = new Dictionary<string, Dictionary<string, string>>();
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 // Membuka koneksi
@@ -100,113 +103,162 @@ namespace Tubes3_SakedikKasep
                     }
                 }
 
-                // "../img/1.BMP"
-                Console.WriteLine("Selamat datang brooo");
-                Console.Write("Silahkan masukkan path gambar yang ingin disamakan: ");
-                string pathSearch = "img/1.BMP";
-                Console.WriteLine("Pilihan algoritma: ");
-                Console.WriteLine("1. KMP");
-                Console.WriteLine("2. BM");
-                Console.Write("Masukkan pilihan algoritma dengan angka: ");
-                string algo = "1";
 
 
-                Bitmap patternBMP = new Bitmap(pathSearch);
-                patternBMP = ImageProcessor.GetCenterCrop(patternBMP, patternBMP.Width, 1);
+                
+            }
 
-                string folderPath = "img";
-                string[] bmpFiles = Directory.GetFiles(folderPath, "*.bmp", SearchOption.TopDirectoryOnly);
+        }
 
-                double maxSimilarity = 0;
-                var path = "";
-                foreach (var bmpPath in bmpFiles)
+        private async void runAlgoritma(Object sender, RoutedEventArgs eventArgs)
+        {
+
+            if(textMatch.Visibility != Visibility.Visible)
+            {
+                textMatch.Visibility = Visibility.Visible;
+                matchP.Visibility = Visibility.Visible;
+            }
+
+            if (img == null)
+            {
+                MessageBox.Show("Silahkan upload gambar sidik jari terlebih dahulu.");
+                return;
+            }
+            else if (algoritma == null)
+            {
+                MessageBox.Show("Silahkan pilih algoritma terlebih dahulu.");
+                return;
+            }
+
+            loading.Visibility = Visibility.Visible;
+
+            Stopwatch stopwatch = new Stopwatch();
+
+            stopwatch.Start();
+
+            await Task.Run(() => Algoritma());
+
+            stopwatch.Stop();
+
+            long elapsed_time = stopwatch.ElapsedMilliseconds;
+
+            TimeTaken.Text = $"{elapsed_time} ms";
+
+            loading.Visibility = Visibility.Collapsed;
+
+        }
+
+        private void Algoritma(){
+
+            Bitmap patternBMP = img;
+            patternBMP = ImageProcessor.GetCenterCrop(patternBMP, patternBMP.Width, 1);
+
+            string folderPath = "img";
+            string[] bmpFiles = Directory.GetFiles(folderPath, "*.bmp", SearchOption.TopDirectoryOnly);
+
+            double maxSimilarity = 0;
+            var path = "";
+            foreach (var bmpPath in bmpFiles)
+            {
+
+                if (algoritma == "KMP")
                 {
-
-                    if (algo == "1")
+                    Bitmap bmp = new Bitmap(bmpPath);
+                    string asciiArt = BitmapToBinaryAsciiConverter.ConvertToAscii(patternBMP);
+                    string oir = BitmapToBinaryAsciiConverter.ConvertToAscii(bmp);
+                    var result = KMPAlgorithm.KmpMatch(oir, asciiArt);
+                    if (result.similarity == 1)
                     {
-                        Bitmap bmp = new Bitmap(bmpPath);
-                        string asciiArt = BitmapToBinaryAsciiConverter.ConvertToAscii(patternBMP);
-                        string oir = BitmapToBinaryAsciiConverter.ConvertToAscii(bmp);
-                        var result = KMPAlgorithm.KmpMatch(oir, asciiArt);
-                        if (result.similarity == 1)
-                        {
-                            maxSimilarity = result.similarity;
-                            path = bmpPath;
-                            break;
-                        }
-                        if (result.similarity > maxSimilarity)
-                        {
-                            maxSimilarity = result.similarity;
-                            path = bmpPath;
-                        }
+                        maxSimilarity = result.similarity;
+                        path = bmpPath;
+                        break;
                     }
-                    else
+                    if (result.similarity > maxSimilarity)
                     {
-                        Bitmap bmp = new Bitmap(bmpPath);
-                        string asciiArt = BitmapToBinaryAsciiConverter.ConvertToAscii(patternBMP);
-                        string oir = BitmapToBinaryAsciiConverter.ConvertToAscii(bmp);
-                        double similarity = BoyerMoore.BmMatch(oir, asciiArt);
-                        if (similarity == 1)
-                        {
-                            maxSimilarity = similarity;
-                            path = bmpPath;
-                            break;
-                        }
-                        if (similarity > maxSimilarity)
-                        {
-                            maxSimilarity = similarity;
-                            path = bmpPath;
-                        }
-                    }
-                }
-                Console.Write("path yang sama: ");
-                Console.WriteLine(path);
-                Console.Write("similarity: ");
-                Console.WriteLine(maxSimilarity);
-                string namaFile = System.IO.Path.GetFileNameWithoutExtension(path);
-
-                if (sidikJariMap.TryGetValue(namaFile, out string value))
-                {
-                    Console.WriteLine($"Name for ID {namaFile}: {value}");
-                    double tempMaxSim = 0;
-                    string name = "";
-                    foreach (var entry in dataMap)
-                    {
-                        string tempName = AlayConverter.RevertAlay(entry.Key);
-                        var set1 = new HashSet<char>(value);
-                        var set2 = new HashSet<char>(tempName);
-
-                        int intersectionCount = set1.Intersect(set2).Count();
-                        int unionCount = set1.Union(set2).Count();
-
-                        double similarity = (double)intersectionCount / unionCount;
-
-                        if (similarity > tempMaxSim)
-                        {
-                            tempMaxSim = similarity;
-                            name = entry.Key;
-                        }
-                    }
-                    Console.WriteLine(name);
-                    if (dataMap.ContainsKey(name))
-                    {
-                        Dictionary<string, string> attribute = dataMap[name];
-                        foreach (var pair in attribute)
-                        {
-                            Console.WriteLine($"{pair.Key}: {pair.Value}");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Key tidak ditemukan.");
+                        maxSimilarity = result.similarity;
+                        path = bmpPath;
                     }
                 }
                 else
                 {
-                    Console.WriteLine($"ID {namaFile} tidak ditemukan.");
+                    Bitmap bmp = new Bitmap(bmpPath);
+                    string asciiArt = BitmapToBinaryAsciiConverter.ConvertToAscii(patternBMP);
+                    string oir = BitmapToBinaryAsciiConverter.ConvertToAscii(bmp);
+                    double similarity = BoyerMoore.BmMatch(oir, asciiArt);
+                    if (similarity == 1)
+                    {
+                        maxSimilarity = similarity;
+                        path = bmpPath;
+                        break;
+                    }
+                    if (similarity > maxSimilarity)
+                    {
+                        maxSimilarity = similarity;
+                        path = bmpPath;
+                    }
                 }
             }
+            Console.Write("path yang sama: ");
+            Console.WriteLine(path);
 
+            MessageBox.Show(path);
+
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(path);
+            bitmap.EndInit();
+
+            persen.Text = $"{maxSimilarity * 100}%";
+
+
+            result.Source = bitmap;
+
+            textMatch.Visibility = Visibility.Collapsed;
+            matchP.Visibility = Visibility.Collapsed;
+
+            Console.WriteLine(maxSimilarity);
+            string namaFile = System.IO.Path.GetFileNameWithoutExtension(path);
+
+            if (sidikJariMap.TryGetValue(namaFile, out string value))
+            {
+                Console.WriteLine($"Name for ID {namaFile}: {value}");
+                double tempMaxSim = 0;
+                string name = "";
+                foreach (var entry in dataMap)
+                {
+                    string tempName = AlayConverter.RevertAlay(entry.Key);
+                    var set1 = new HashSet<char>(value);
+                    var set2 = new HashSet<char>(tempName);
+
+                    int intersectionCount = set1.Intersect(set2).Count();
+                    int unionCount = set1.Union(set2).Count();
+
+                    double similarity = (double)intersectionCount / unionCount;
+
+                    if (similarity > tempMaxSim)
+                    {
+                        tempMaxSim = similarity;
+                        name = entry.Key;
+                    }
+                }
+                Console.WriteLine(name);
+                if (dataMap.ContainsKey(name))
+                {
+                    Dictionary<string, string> attribute = dataMap[name];
+                    foreach (var pair in attribute)
+                    {
+                        Console.WriteLine($"{pair.Key}: {pair.Value}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Key tidak ditemukan.");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"ID {namaFile} tidak ditemukan.");
+            }
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -231,7 +283,7 @@ namespace Tubes3_SakedikKasep
                     bitmap.EndInit();
                     imgUpld.Source = bitmap;
                     Console.WriteLine(bitmap);
-                    img = filename;
+                    img = new Bitmap(filename);
                     fingerImg.Visibility = Visibility.Collapsed;
                     txtFinger.Visibility = Visibility.Collapsed;
                 }
@@ -283,19 +335,19 @@ namespace Tubes3_SakedikKasep
             }
         }
 
-        private void deleteImg(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                imgUpld.Source = null;
-                fingerImg.Visibility = Visibility.Visible;
-                txtFinger.Visibility = Visibility.Visible;
-                img = "";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //private void deleteImg(object sender, MouseButtonEventArgs e)
+        //{
+        //    try
+        //    {
+        //        imgUpld.Source = null;
+        //        fingerImg.Visibility = Visibility.Visible;
+        //        txtFinger.Visibility = Visibility.Visible;
+        //        img = "";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
     }
 }
