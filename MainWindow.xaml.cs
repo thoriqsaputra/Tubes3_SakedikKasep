@@ -168,10 +168,14 @@ namespace Tubes3_SakedikKasep
             {
                 // set the bio of the most similar fingerprint
                 setBio(attribute);
+                string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+
+                // Combine the project directory with the relative path
+                string absolutePath = System.IO.Path.Combine(projectDirectory, resultPath);
 
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                bitmap.UriSource = new Uri(resultPath, UriKind.RelativeOrAbsolute);
+                bitmap.UriSource = new Uri(absolutePath, UriKind.RelativeOrAbsolute);
                 bitmap.EndInit();
                 // set the image to the result image
                 IMGresult.Source = bitmap;
