@@ -38,6 +38,8 @@ namespace Tubes3_SakedikKasep
         public Bitmap img;
         private Dictionary<string, string> sidikJariMap;
         private Dictionary<string, Dictionary<string, string>> dataMap;
+        private String resultPath = "";
+        private double similariti;
 
         public MainWindow()
         {
@@ -112,13 +114,7 @@ namespace Tubes3_SakedikKasep
 
         private async void runAlgoritma(Object sender, RoutedEventArgs eventArgs)
         {
-
-            if(textMatch.Visibility != Visibility.Visible)
-            {
-                textMatch.Visibility = Visibility.Visible;
-                matchP.Visibility = Visibility.Visible;
-            }
-
+            // Cek if the image and algorithm has been selected or not
             if (img == null)
             {
                 MessageBox.Show("Silahkan upload gambar sidik jari terlebih dahulu.");
@@ -130,21 +126,64 @@ namespace Tubes3_SakedikKasep
                 return;
             }
 
+
+
+            // show loading animation
             loading.Visibility = Visibility.Visible;
 
-            Stopwatch stopwatch = new Stopwatch();
+            Stopwatch stopwatch = new Stopwatch(); // create new stopwatch
 
-            stopwatch.Start();
+            stopwatch.Start(); // start the stopwatch
 
-            await Task.Run(() => Algoritma());
+            await Task.Run(() => Algoritma()); // Run the algorithm
 
-            stopwatch.Stop();
+            stopwatch.Stop(); // stop the stopwatch
 
+            // get the elapsed time
             long elapsed_time = stopwatch.ElapsedMilliseconds;
 
-            TimeTaken.Text = $"{elapsed_time} ms";
-
+            // hide loading animation
             loading.Visibility = Visibility.Collapsed;
+
+            // Hide the placeHolder for the result image
+            textMatch.Visibility = Visibility.Collapsed;
+            matchP.Visibility = Visibility.Collapsed;
+
+           
+            // LATER ADD BOOLEAN WHEN KNOW WHERE TO PLACE IT AT
+            if (resultPath == "") // REMBER TO ADD SOME BOOLEAN EXPRESSION WETHER THE IMAGE IS FOUND OR NOT
+            {
+                textMatch.Text = "Not Match";
+                textMatch.Foreground = System.Windows.Media.Brushes.Red;
+                MessageBox.Show("Gambar tidak ditemukan");
+                return;
+            }
+            else
+            {
+                string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+
+
+                string absolutePath = System.IO.Path.Combine(projectDirectory, resultPath);
+
+                string pat = absolutePath.Replace(@"\", "/");
+
+                MessageBox.Show(pat);
+
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(absolutePath, UriKind.Absolute);
+                bitmap.EndInit();
+                IMGresult.Source = bitmap;
+
+                textMatch.Text = "Match";
+                textMatch.Foreground = System.Windows.Media.Brushes.Green;
+
+            }
+            textMatch.Visibility = Visibility.Visible;
+
+            TimeTaken.Text = $"{elapsed_time} ms";
+            persen.Text = $"{similariti * 100}%";
+
 
         }
 
@@ -198,25 +237,11 @@ namespace Tubes3_SakedikKasep
                     }
                 }
             }
-            Console.Write("path yang sama: ");
-            Console.WriteLine(path);
 
-            MessageBox.Show(path);
+            resultPath = path;
 
-            BitmapImage bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri(path);
-            bitmap.EndInit();
+            similariti = maxSimilarity;
 
-            persen.Text = $"{maxSimilarity * 100}%";
-
-
-            result.Source = bitmap;
-
-            textMatch.Visibility = Visibility.Collapsed;
-            matchP.Visibility = Visibility.Collapsed;
-
-            Console.WriteLine(maxSimilarity);
             string namaFile = System.IO.Path.GetFileNameWithoutExtension(path);
 
             if (sidikJariMap.TryGetValue(namaFile, out string value))
@@ -286,6 +311,21 @@ namespace Tubes3_SakedikKasep
                     img = new Bitmap(filename);
                     fingerImg.Visibility = Visibility.Collapsed;
                     txtFinger.Visibility = Visibility.Collapsed;
+
+                    // Cek if the process has been done before or not
+                    if (matchP.Visibility != Visibility.Visible)
+                    {
+                        textMatch.Visibility = Visibility.Visible;
+                        matchP.Visibility = Visibility.Visible;
+                        IMGresult.Visibility = Visibility.Collapsed;
+
+                        textMatch.Text = "Matching Print Will Be Here";
+                        textMatch.Foreground = System.Windows.Media.Brushes.Black;
+                        TimeTaken.Text = "-ms";
+                        persen.Text = "-%";
+                        resultPath = "";
+                        similariti = 0;
+                    }
                 }
             }
             catch (Exception ex)

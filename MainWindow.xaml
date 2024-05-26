@@ -146,12 +146,6 @@
                             <RowDefinition Height="56*"/>
                             <RowDefinition Height="9*"/>
                         </Grid.RowDefinitions>
-                        <Image x:Name="imgResult"
-                               Grid.RowSpan="2"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               RenderOptions.BitmapScalingMode="HighQuality" 
-                            />
                         <Image
                             x:Name="matchP"
                             Source="Image/pair.png"
@@ -168,9 +162,9 @@
                                    FontFamily="Font/#Righteous"
                                    FontWeight="Medium"
                                    Foreground="BLACK" Margin="0,3,0,-3" />
-                        <Image x:Name="result"
+                        <Image x:Name="IMGresult"
+                               RenderOptions.BitmapScalingMode="HighQuality"
                                Grid.RowSpan="2"
-                               Source="Image/dimon.png"
                                 Visibility="Collapsed"
                                />
                     </Grid>
@@ -337,7 +331,7 @@
                                        Foreground="DarkCyan"
                                        HorizontalAlignment="Left"
                                        VerticalAlignment="Center" Margin="10,0,0,0"/>
-                            <TextBlock Text="00:00:00"
+                            <TextBlock Text="-ms"
                                        x:Name="TimeTaken"
                                        FontFamily="Font/#Marcellus"
                                        FontSize="22"
@@ -349,7 +343,7 @@
 
 
                         <StackPanel Orientation="Horizontal"
-                                    Grid.Row="1">
+                                    Grid.Row="1" Margin="0,0,-10,0">
                             <TextBlock Text="Percentage of Similarity:"
                                        FontFamily="Font/#Marcellus"
                                        FontSize="22"
@@ -358,7 +352,7 @@
                                        HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
                                        Grid.Row="1" Margin="10,0,0,0"/>
-                            <TextBlock Text="0%"
+                            <TextBlock Text="-%"
                                        x:Name="persen"
                                        FontFamily="Font/#Marcellus"
                                        FontSize="22"
@@ -446,13 +440,18 @@
 
                 <Border
                     Grid.ColumnSpan="2"
-                    Background="BlueViolet"
+                    CornerRadius="300"
+                    Background="BlanchedAlmond"
                     Opacity="0.3"
+                    Width="600"
+                    Height="600"
+                    
                     />
 
-                <Image gif:ImageBehavior.RepeatBehavior="3x"
+                <Image 
                        Width="400"
                        Grid.ColumnSpan="2"
+                       gif:ImageBehavior.RepeatBehavior="2"
                        gif:ImageBehavior.AnimatedSource="Image/catR.gif"/>
 
 
