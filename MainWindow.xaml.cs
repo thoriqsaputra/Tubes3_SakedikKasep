@@ -188,7 +188,20 @@ namespace Tubes3_SakedikKasep
             }
             textMatch.Visibility = Visibility.Visible;
             // set the time taken to the text
-            TimeTaken.Text = $"{elapsed_time} ms";
+
+            if (elapsed_time < 1000)
+            {
+                TimeTaken.Text = $"{elapsed_time} ms";
+            }
+            else if (elapsed_time < 60000)
+            {
+                TimeTaken.Text = $"{elapsed_time / 1000} s";
+            }
+            else
+            {
+                TimeTaken.Text = $"{elapsed_time / 60000} m";
+            }
+
             // set the similarity to the text
             persen.Text = $"{similariti * 100}%";
 
