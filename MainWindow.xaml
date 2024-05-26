@@ -429,8 +429,8 @@
             <Grid Grid.Column="0"
                   Grid.ColumnSpan="2"
                   Grid.RowSpan="2"
-                  Visibility="Collapsed"
                   x:Name="loading"
+                  Visibility="Collapsed"
                   >
                   
                 <Grid.ColumnDefinitions>
@@ -443,16 +443,18 @@
                     CornerRadius="300"
                     Background="BlanchedAlmond"
                     Opacity="0.3"
-                    Width="600"
-                    Height="600"
+                    Width="700"
+                    Height="500"
                     
                     />
 
                 <Image 
+                    x:Name="RoundedImage"
                        Width="400"
+                       RenderOptions.BitmapScalingMode="HighQuality"
                        Grid.ColumnSpan="2"
                        gif:ImageBehavior.RepeatBehavior="2"
-                       gif:ImageBehavior.AnimatedSource="Image/catR.gif"/>
+                       gif:ImageBehavior.AnimatedSource="Image/catWu.gif"/>
 
 
             </Grid>

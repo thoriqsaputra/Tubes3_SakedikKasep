@@ -44,6 +44,7 @@ namespace Tubes3_SakedikKasep
         public MainWindow()
         {
             InitializeComponent();
+
             string connectionString = "Data Source=biodata.db;Version=3;";
             sidikJariMap = new Dictionary<string, string>();
             dataMap = new Dictionary<string, Dictionary<string, string>>();
@@ -160,21 +161,12 @@ namespace Tubes3_SakedikKasep
             }
             else
             {
-                string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
-
-
-                string absolutePath = System.IO.Path.Combine(projectDirectory, resultPath);
-
-                string pat = absolutePath.Replace(@"\", "/");
-
-                MessageBox.Show(pat);
-
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                bitmap.UriSource = new Uri(absolutePath, UriKind.Absolute);
+                bitmap.UriSource = new Uri(resultPath, UriKind.RelativeOrAbsolute);
                 bitmap.EndInit();
                 IMGresult.Source = bitmap;
-
+                IMGresult.Visibility = Visibility.Visible;
                 textMatch.Text = "Match";
                 textMatch.Foreground = System.Windows.Media.Brushes.Green;
 
@@ -302,6 +294,7 @@ namespace Tubes3_SakedikKasep
                 if (result == true)
                 {
                     string filename = dlg.FileName;
+
                     BitmapImage bitmap = new BitmapImage();
                     bitmap.BeginInit();
                     bitmap.UriSource = new Uri(filename);
