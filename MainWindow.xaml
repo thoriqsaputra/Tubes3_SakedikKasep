@@ -474,6 +474,7 @@
                     Grid.ColumnSpan="2"
                     Background="BlanchedAlmond"
                     Opacity="0.3"
+                    CornerRadius="0 0 12 12"
                     
                     >
                     <Border.Effect>

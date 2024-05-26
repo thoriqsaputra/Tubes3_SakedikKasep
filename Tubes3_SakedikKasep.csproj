@@ -9,9 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="biodata.db" />
     <None Remove="Font\Danfo.ttf" />
     <None Remove="Font\Marcellus.ttf" />
     <None Remove="Font\Righteous.ttf" />
+    <None Remove="Image\catR.gif" />
+    <None Remove="Image\catWu.gif" />
     <None Remove="Image\citty.png" />
     <None Remove="Image\dimon.png" />
     <None Remove="Image\fingerIn.png" />
@@ -19,12 +22,17 @@
     <None Remove="Image\pair.png" />
     <None Remove="Image\remove.png" />
     <None Remove="Image\renam.png" />
+    <None Remove="Image\sad.gif" />
+    <None Remove="img\1.BMP" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="biodata.db" />
     <Resource Include="Font\Danfo.ttf" />
     <Resource Include="Font\Marcellus.ttf" />
     <Resource Include="Font\Righteous.ttf" />
+    <Resource Include="Image\catR.gif" />
+    <Resource Include="Image\catWu.gif" />
     <Resource Include="Image\citty.png" />
     <Resource Include="Image\dimon.png" />
     <Resource Include="Image\fingerIn.png" />
@@ -32,11 +40,14 @@
     <Resource Include="Image\pair.png" />
     <Resource Include="Image\remove.png" />
     <Resource Include="Image\renam.png" />
+    <Resource Include="Image\sad.gif" />
+    <Resource Include="img\1.BMP" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
     <PackageReference Include="System.Drawing.Common" Version="8.0.5" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
 </Project>

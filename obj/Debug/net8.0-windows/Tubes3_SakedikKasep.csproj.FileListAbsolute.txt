@@ -18,8 +18,6 @@ C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_Sake
 C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.pdb
 C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.genruntimeconfig.cache
 C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\ref\Tubes3_SakedikKasep.dll
-C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\bioDetails.g.cs
-C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\bioDetails.baml
 C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.sourcelink.json
 C:\Users\ASUS\Documents\Project\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\bioDetails.g.cs
 C:\Users\ASUS\Documents\Project\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\MainWindow.g.cs
@@ -63,3 +61,21 @@ C:\Users\ASUS\Documents\Project\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tub
 C:\Users\ASUS\Documents\Project\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.csproj.CopyComplete
 C:\Users\ASUS\Documents\Project\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.genruntimeconfig.cache
 C:\Users\ASUS\Documents\Project\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\ref\Tubes3_SakedikKasep.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\EntityFramework.SqlServer.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\EntityFramework.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\System.Data.SQLite.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\System.Data.SQLite.EF6.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\System.Drawing.Common.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_SakedikKasep.csproj.AssemblyReference.cache
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\obj\Debug\net8.0-windows\Tubes3_S.3331B61E.Up2Date
+C:\Users\saput\OneDrive\Desktop\Kuliah\Semester 4\Strategi Algoritma\Tubes3_SakedikKasep\bin\Debug\net8.0-windows\WpfAnimatedGif.dll

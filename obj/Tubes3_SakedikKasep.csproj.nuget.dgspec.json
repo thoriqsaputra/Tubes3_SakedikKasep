@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj": {}
+    "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj": {
+    "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
+        "projectUniqueName": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
         "projectName": "Tubes3_SakedikKasep",
-        "projectPath": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\obj\\",
+        "projectPath": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
+        "packagesPath": "C:\\Users\\saput\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\saput\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -45,6 +52,10 @@
             "System.Drawing.Common": {
               "target": "Package",
               "version": "[8.0.5, )"
+            },
+            "WpfAnimatedGif": {
+              "target": "Package",
+              "version": "[2.0.2, )"
             }
           },
           "imports": [
@@ -66,7 +77,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

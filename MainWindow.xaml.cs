@@ -36,16 +36,20 @@ namespace Tubes3_SakedikKasep
 
     public partial class MainWindow : Window
     {
-
+        // user inputs
         public string algoritma;
         public Bitmap img;
+
+        // database
         private Dictionary<string, string> sidikJariMap;
         private Dictionary<string, Dictionary<string, string>> dataMap;
-        private String resultPath = "";
-        private double similariti;
-        private Dictionary<string, string> attribute;
 
+        // temporary variables for results
+        private Dictionary<string, string> attribute;
+        private double similariti;
         private string naem;
+        private String resultPath = "";
+        private Boolean found;
 
         public MainWindow()
         {
@@ -111,10 +115,6 @@ namespace Tubes3_SakedikKasep
                         }
                     }
                 }
-
-
-
-                
             }
 
         }
@@ -133,7 +133,8 @@ namespace Tubes3_SakedikKasep
                 return;
             }
 
-
+            // set the found to false
+            found = false;
 
             // show loading animation
             loading.Visibility = Visibility.Visible;
@@ -158,11 +159,18 @@ namespace Tubes3_SakedikKasep
 
            
             // LATER ADD BOOLEAN WHEN KNOW WHERE TO PLACE IT AT
-            if (resultPath == "") // REMBER TO ADD SOME BOOLEAN EXPRESSION WETHER THE IMAGE IS FOUND OR NOT
+            if (!found) // REMBER TO ADD SOME BOOLEAN EXPRESSION WETHER THE IMAGE IS FOUND OR NOT
             {
                 textMatch.Text = "Not Match";
                 textMatch.Foreground = System.Windows.Media.Brushes.Red;
-                return;
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri("Image/sad.gif");
+                bitmap.EndInit();
+                IMGresult.Source = bitmap;
+                IMGresult.Visibility = Visibility.Visible;
+                textMatch.Text = "Not Match";
+                textMatch.Foreground = System.Windows.Media.Brushes.Red;
             }
             else
             {
@@ -186,9 +194,10 @@ namespace Tubes3_SakedikKasep
                 textMatch.Foreground = System.Windows.Media.Brushes.Green;
 
             }
+
+            // show the text
             textMatch.Visibility = Visibility.Visible;
             // set the time taken to the text
-
             if (elapsed_time < 1000)
             {
                 TimeTaken.Text = $"{elapsed_time} ms";
@@ -309,15 +318,19 @@ namespace Tubes3_SakedikKasep
                 {
                     // set the bio of the most similar fingerprint
                     attribute = dataMap[name];
+                    found = true;
                 }
                 else
                 {
+                    MessageBox.Show(name);
                     MessageBox.Show("Data tidak ditemukan");
+                    found = false;
                 }
             }
             else
             {
                 MessageBox.Show($"ID {namaFile} tidak ditemukan.");
+                found = false;
             }
         }
 
@@ -351,13 +364,17 @@ namespace Tubes3_SakedikKasep
                     // Cek if the process has been done before or not
                     if (matchP.Visibility != Visibility.Visible)
                     {
+                        // empty the bio
                         foreach (var Pair in attribute)
                         {
                             attribute[Pair.Key] = "";
                         }
 
-                        setBio(attribute);
-                        nama.Text = "";
+                        if (attribute[attribute.Keys.First()] != "")
+                        {
+                            setBio(attribute);
+                            nama.Text = "";
+                        }
 
                         textMatch.Visibility = Visibility.Visible;
                         matchP.Visibility = Visibility.Visible;
