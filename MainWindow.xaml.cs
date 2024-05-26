@@ -21,6 +21,9 @@ using System.Data.SQLite;
 using System.CodeDom.Compiler;
 using System.IO;
 using System.Diagnostics;
+using System.ComponentModel;
+using System.Xml.Linq;
+using System.Data.Entity.Core;
 
 
 namespace Tubes3_SakedikKasep
@@ -40,6 +43,9 @@ namespace Tubes3_SakedikKasep
         private Dictionary<string, Dictionary<string, string>> dataMap;
         private String resultPath = "";
         private double similariti;
+        private Dictionary<string, string> attribute;
+
+        private string naem;
 
         public MainWindow()
         {
@@ -156,27 +162,48 @@ namespace Tubes3_SakedikKasep
             {
                 textMatch.Text = "Not Match";
                 textMatch.Foreground = System.Windows.Media.Brushes.Red;
-                MessageBox.Show("Gambar tidak ditemukan");
                 return;
             }
             else
             {
+                // set the bio of the most similar fingerprint
+                setBio(attribute);
+
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
                 bitmap.UriSource = new Uri(resultPath, UriKind.RelativeOrAbsolute);
                 bitmap.EndInit();
+                // set the image to the result image
                 IMGresult.Source = bitmap;
+                // show the result image
                 IMGresult.Visibility = Visibility.Visible;
+                // set the text to match
                 textMatch.Text = "Match";
                 textMatch.Foreground = System.Windows.Media.Brushes.Green;
 
             }
             textMatch.Visibility = Visibility.Visible;
-
+            // set the time taken to the text
             TimeTaken.Text = $"{elapsed_time} ms";
+            // set the similarity to the text
             persen.Text = $"{similariti * 100}%";
 
 
+        }
+
+        public void setBio(Dictionary<string, string> attributes)
+        {
+            NIK.Text = attributes["NIK"];
+            nama.Text = naem;
+            tempatLahir.Text = attributes["tempat_lahir"];
+            tanggalLahir.Text = attributes["tanggal_lahir"];
+            jenisKelamin.Text = attributes["jenis_kelamin"];
+            golonganDarah.Text = attributes["golongan_darah"];
+            alamat.Text = attributes["alamat"];
+            agama.Text = attributes["agama"];
+            statusPerkawinan.Text = attributes["status_perkawinan"];
+            pekerjaan.Text = attributes["pekerjaan"];
+            kewarganegaraan.Text = attributes["kewarganegaraan"];
         }
 
         private void Algoritma(){
@@ -230,8 +257,9 @@ namespace Tubes3_SakedikKasep
                 }
             }
 
+            // set path to temporary variable
             resultPath = path;
-
+            // set similarity to temporary variable
             similariti = maxSimilarity;
 
             string namaFile = System.IO.Path.GetFileNameWithoutExtension(path);
@@ -259,22 +287,20 @@ namespace Tubes3_SakedikKasep
                     }
                 }
                 Console.WriteLine(name);
+                naem = value;
                 if (dataMap.ContainsKey(name))
                 {
-                    Dictionary<string, string> attribute = dataMap[name];
-                    foreach (var pair in attribute)
-                    {
-                        Console.WriteLine($"{pair.Key}: {pair.Value}");
-                    }
+                    // set the bio of the most similar fingerprint
+                    attribute = dataMap[name];
                 }
                 else
                 {
-                    Console.WriteLine("Key tidak ditemukan.");
+                    MessageBox.Show("Data tidak ditemukan");
                 }
             }
             else
             {
-                Console.WriteLine($"ID {namaFile} tidak ditemukan.");
+                MessageBox.Show($"ID {namaFile} tidak ditemukan.");
             }
         }
 
@@ -308,6 +334,14 @@ namespace Tubes3_SakedikKasep
                     // Cek if the process has been done before or not
                     if (matchP.Visibility != Visibility.Visible)
                     {
+                        foreach (var Pair in attribute)
+                        {
+                            attribute[Pair.Key] = "";
+                        }
+
+                        setBio(attribute);
+                        nama.Text = "";
+
                         textMatch.Visibility = Visibility.Visible;
                         matchP.Visibility = Visibility.Visible;
                         IMGresult.Visibility = Visibility.Collapsed;
