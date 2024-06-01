@@ -1,49 +1,65 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\",
+  "WorkspaceRootPath": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Tubes3_SakedikKasep.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\image\\dimon.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:image\\dimon.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\MainWindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MainWindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\kmpalgorithm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:kmpalgorithm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\App.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:App.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\boyermoore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:boyermoore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\.vs\\tasks.vs.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.vs\\tasks.vs.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\App.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:App.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\tubes3_sakedikkasep.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:tubes3_sakedikkasep.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\.vs\\CMakeWorkspaceSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.vs\\CMakeWorkspaceSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Image\\dimon.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Image\\dimon.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\saput\\AppData\\Local\\Temp\\.vsdbgsrc\\0a84cc53936b314ba955b54f50bf4796d8234943f3fd7b93873381b45d404026\\XamlReader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\bitmaptobinaryasciiconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:bitmaptobinaryasciiconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\BoyerMoore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BoyerMoore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\algo\\kmp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:algo\\kmp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\KMPAlgorithm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:KMPAlgorithm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|c:\\users\\saput\\onedrive\\desktop\\kuliah\\semester 4\\strategi algoritma\\tubes3_sakedikkasep\\algo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C71F9F44-0A01-42EE-A1AD-E6C33133A312}|Tubes3_SakedikKasep.csproj|solutionrelative:algo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\algo\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:algo\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\BitmapToBinaryAsciiConverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BitmapToBinaryAsciiConverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\algo\\KMP.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:algo\\KMP.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -53,17 +69,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 231,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-01T05:36:10.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\App.xaml.cs",
+              "RelativeDocumentMoniker": "App.xaml.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\App.xaml.cs",
+              "RelativeToolTip": "App.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-01T05:31:10.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CMakeWorkspaceSettings.json",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\.vs\\CMakeWorkspaceSettings.json",
+              "RelativeDocumentMoniker": ".vs\\CMakeWorkspaceSettings.json",
+              "ToolTip": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\.vs\\CMakeWorkspaceSettings.json",
+              "RelativeToolTip": ".vs\\CMakeWorkspaceSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-01T05:23:37.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "tasks.vs.json",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\.vs\\tasks.vs.json",
+              "RelativeDocumentMoniker": ".vs\\tasks.vs.json",
+              "ToolTip": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\.vs\\tasks.vs.json",
+              "RelativeToolTip": ".vs\\tasks.vs.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-01T05:23:19.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAAKEAAAAAAAAAAAAAAK0AAAANAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEwAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-23T17:15:33.859Z",
               "EditorCaption": ""
@@ -72,70 +140,70 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
+              "ViewState": "AQIAAEABAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-05-26T07:55:09.756Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BoyerMoore.cs",
-              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\BoyerMoore.cs",
-              "RelativeDocumentMoniker": "BoyerMoore.cs",
-              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\BoyerMoore.cs",
-              "RelativeToolTip": "BoyerMoore.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T17:57:36.138Z",
+              "DocumentIndex": 0,
+              "Title": "Tubes3_SakedikKasep.csproj",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
+              "RelativeDocumentMoniker": "Tubes3_SakedikKasep.csproj",
+              "ToolTip": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
+              "RelativeToolTip": "Tubes3_SakedikKasep.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-05-25T18:49:31.331Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "dimon.png",
-              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\Image\\dimon.png",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Image\\dimon.png",
               "RelativeDocumentMoniker": "Image\\dimon.png",
-              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\Image\\dimon.png",
+              "ToolTip": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Image\\dimon.png",
               "RelativeToolTip": "Image\\dimon.png",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
               "WhenOpened": "2024-05-23T17:40:21.182Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Tubes3_SakedikKasep.csproj",
-              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
-              "RelativeDocumentMoniker": "Tubes3_SakedikKasep.csproj",
-              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
-              "RelativeToolTip": "Tubes3_SakedikKasep.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-25T18:49:31.331Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "KMPAlgorithm.cs",
-              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\KMPAlgorithm.cs",
-              "RelativeDocumentMoniker": "KMPAlgorithm.cs",
-              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\KMPAlgorithm.cs",
-              "RelativeToolTip": "KMPAlgorithm.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 9,
+              "Title": "BoyerMoore.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\BoyerMoore.cs",
+              "RelativeDocumentMoniker": "BoyerMoore.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\BoyerMoore.cs",
+              "RelativeToolTip": "BoyerMoore.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-26T08:05:25.747Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T17:57:36.138Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "KMPAlgorithm.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\KMPAlgorithm.cs",
+              "RelativeDocumentMoniker": "KMPAlgorithm.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\KMPAlgorithm.cs",
+              "RelativeToolTip": "KMPAlgorithm.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T08:05:25.747Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\algo\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\algo\\Program.cs",
               "RelativeDocumentMoniker": "algo\\Program.cs",
-              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\algo\\Program.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\algo\\Program.cs",
               "RelativeToolTip": "algo\\Program.cs",
               "ViewState": "AQIAAG8BAAAAAAAAAAAYwKEBAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -143,24 +211,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
               "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\.gitignore",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\.gitignore",
+              "ToolTip": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\.gitignore",
               "RelativeToolTip": ".gitignore",
               "ViewState": "AQIAAKAAAAAAAAAAAAAAAK4AAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-05-26T07:05:57.698Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-26T07:05:57.698Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "BitmapToBinaryAsciiConverter.cs",
-              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\BitmapToBinaryAsciiConverter.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\BitmapToBinaryAsciiConverter.cs",
               "RelativeDocumentMoniker": "BitmapToBinaryAsciiConverter.cs",
-              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\BitmapToBinaryAsciiConverter.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\BitmapToBinaryAsciiConverter.cs",
               "RelativeToolTip": "BitmapToBinaryAsciiConverter.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -168,24 +235,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "XamlReader.cs",
               "DocumentMoniker": "C:\\Users\\saput\\AppData\\Local\\Temp\\.vsdbgsrc\\0a84cc53936b314ba955b54f50bf4796d8234943f3fd7b93873381b45d404026\\XamlReader.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\0a84cc53936b314ba955b54f50bf4796d8234943f3fd7b93873381b45d404026\\XamlReader.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\saput\\AppData\\Local\\Temp\\.vsdbgsrc\\0a84cc53936b314ba955b54f50bf4796d8234943f3fd7b93873381b45d404026\\XamlReader.cs",
               "ToolTip": "C:\\Users\\saput\\AppData\\Local\\Temp\\.vsdbgsrc\\0a84cc53936b314ba955b54f50bf4796d8234943f3fd7b93873381b45d404026\\XamlReader.cs [Read Only]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\0a84cc53936b314ba955b54f50bf4796d8234943f3fd7b93873381b45d404026\\XamlReader.cs [Read Only]",
+              "RelativeToolTip": "..\\..\\..\\..\\saput\\AppData\\Local\\Temp\\.vsdbgsrc\\0a84cc53936b314ba955b54f50bf4796d8234943f3fd7b93873381b45d404026\\XamlReader.cs [Read Only]",
               "ViewState": "AQIAAJ8BAAAAAAAAAAAlwLUBAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T18:03:06.131Z",
-              "EditorCaption": " [Read Only]"
+              "WhenOpened": "2024-05-25T18:03:06.131Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "KMP.cs",
-              "DocumentMoniker": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\algo\\KMP.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\algo\\KMP.cs",
               "RelativeDocumentMoniker": "algo\\KMP.cs",
-              "ToolTip": "C:\\Users\\saput\\OneDrive\\Desktop\\Kuliah\\Semester 4\\Strategi Algoritma\\Tubes3_SakedikKasep\\algo\\KMP.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\algo\\KMP.cs",
               "RelativeToolTip": "algo\\KMP.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

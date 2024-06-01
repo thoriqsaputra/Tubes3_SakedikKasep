@@ -16,68 +16,63 @@ using System.Linq;
 using System.Text;
 using System.Globalization;
 using System.Text.RegularExpressions;
-using static AlayConverter;
-using System.Data.SQLite;
-using System.CodeDom.Compiler;
+using System.Security.Cryptography;
 using System.IO;
+using System.Data.SQLite;
 using System.Diagnostics;
-using System.ComponentModel;
-using System.Xml.Linq;
-using System.Data.Entity.Core;
-
 
 namespace Tubes3_SakedikKasep
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    /// 
-
-
     public partial class MainWindow : Window
     {
         // user inputs
-        public string algoritma;
-        public Bitmap img;
+        public string? algoritma;
+        public Bitmap? img;
 
         // database
         private Dictionary<string, string> sidikJariMap;
         private Dictionary<string, Dictionary<string, string>> dataMap;
 
         // temporary variables for results
-        private Dictionary<string, string> attribute;
+        private Dictionary<string, string>? attribute;
         private double similariti;
-        private string naem;
-        private String resultPath = "";
-        private Boolean found;
+        private string? naem;
+        private string resultPath = "";
+        private bool found;
+
+        // RSA Keys
+        private RSA privateKey;
+        private RSA publicKey;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            string connectionString = "Data Source=biodata.db;Version=3;";
+            string connectionString = "Data Source=biodata1.db; Version=3;";
             sidikJariMap = new Dictionary<string, string>();
             dataMap = new Dictionary<string, Dictionary<string, string>>();
+
+            // Load RSA keys
+            privateKey = RSA.Create();
+            publicKey = RSA.Create();
+
+            privateKey.ImportFromPem(File.ReadAllText("Key/private_key.pem"));
+            publicKey.ImportFromPem(File.ReadAllText("Key/public_key.pem"));
+
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
-                // Membuka koneksi
                 connection.Open();
 
-                // Membuat command untuk mengambil data
                 string query = "SELECT * FROM sidik_jari";
                 using (SQLiteCommand command = new SQLiteCommand(query, connection))
                 {
-                    // Mengeksekusi query dan mendapatkan data
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
-                        // Membaca data
                         while (reader.Read())
                         {
-                            // Misalkan tabel memiliki kolom "id" (integer) dan "name" (string)
-                            string id = reader.GetString(0); // Kolom pertama
-                            string name = reader.GetString(1); // Kolom kedua
+                            string id = reader.GetString(0);
+                            string name = Decrypt(reader.GetString(1) ?? string.Empty);
 
-                            // Tambahkan ke dictionary
                             sidikJariMap[id] = name;
                         }
                     }
@@ -90,38 +85,40 @@ namespace Tubes3_SakedikKasep
                     {
                         while (reader.Read())
                         {
-                            // Nama sebagai kunci (key), sisanya sebagai nilai (value)
-                            string nama = reader["nama"].ToString();
+                            string nama = Decrypt(reader["nama"]?.ToString() ?? string.Empty);
 
-                            // Periksa apakah kunci sudah ada sebelum menambahkannya
                             if (!dataMap.ContainsKey(nama))
                             {
                                 Dictionary<string, string> attributes = new Dictionary<string, string>
-                            {
-                                { "NIK", reader["NIK"].ToString() },
-                                { "tempat_lahir", reader["tempat_lahir"].ToString() },
-                                { "tanggal_lahir", reader["tanggal_lahir"].ToString() },
-                                { "jenis_kelamin", reader["jenis_kelamin"].ToString() },
-                                { "golongan_darah", reader["golongan_darah"].ToString() },
-                                { "alamat", reader["alamat"].ToString() },
-                                { "agama", reader["agama"].ToString() },
-                                { "status_perkawinan", reader["status_perkawinan"].ToString() },
-                                { "pekerjaan", reader["pekerjaan"].ToString() },
-                                { "kewarganegaraan", reader["kewarganegaraan"].ToString() }
-                            };
-                                // Tambahkan ke dalam Dictionary dataMap
+                                {
+                                    { "NIK", reader["NIK"]?.ToString() ?? string.Empty },
+                                    { "tempat_lahir", Decrypt(reader["tempat_lahir"]?.ToString() ?? string.Empty) },
+                                    { "tanggal_lahir", Decrypt(reader["tanggal_lahir"]?.ToString() ?? string.Empty) },
+                                    { "jenis_kelamin", Decrypt(reader["jenis_kelamin"]?.ToString() ?? string.Empty) },
+                                    { "golongan_darah", Decrypt(reader["golongan_darah"]?.ToString() ?? string.Empty) },
+                                    { "alamat", Decrypt(reader["alamat"]?.ToString() ?? string.Empty) },
+                                    { "agama", Decrypt(reader["agama"]?.ToString() ?? string.Empty) },
+                                    { "status_perkawinan", Decrypt(reader["status_perkawinan"]?.ToString() ?? string.Empty) },
+                                    { "pekerjaan", Decrypt(reader["pekerjaan"]?.ToString() ?? string.Empty) },
+                                    { "kewarganegaraan", Decrypt(reader["kewarganegaraan"]?.ToString() ?? string.Empty) }
+                                };
                                 dataMap.Add(nama, attributes);
                             }
                         }
                     }
                 }
             }
+        }
 
+        private string Decrypt(string encryptedText)
+        {
+            byte[] encryptedBytes = Convert.FromBase64String(encryptedText);
+            byte[] decryptedBytes = privateKey.Decrypt(encryptedBytes, RSAEncryptionPadding.OaepSHA256);
+            return Encoding.UTF8.GetString(decryptedBytes);
         }
 
         private async void runAlgoritma(Object sender, RoutedEventArgs eventArgs)
         {
-            // Cek if the image and algorithm has been selected or not
             if (img == null)
             {
                 MessageBox.Show("Silahkan upload gambar sidik jari terlebih dahulu.");
@@ -133,94 +130,57 @@ namespace Tubes3_SakedikKasep
                 return;
             }
 
-            // set the found to false
             found = false;
-
-            // show loading animation
             loading.Visibility = Visibility.Visible;
 
-            Stopwatch stopwatch = new Stopwatch(); // create new stopwatch
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
 
-            stopwatch.Start(); // start the stopwatch
+            await Task.Run(() => Algoritma());
 
-            await Task.Run(() => Algoritma()); // Run the algorithm
-
-            stopwatch.Stop(); // stop the stopwatch
-
-            // get the elapsed time
+            stopwatch.Stop();
             long elapsed_time = stopwatch.ElapsedMilliseconds;
 
-            // hide loading animation
             loading.Visibility = Visibility.Collapsed;
-
-            // Hide the placeHolder for the result image
             textMatch.Visibility = Visibility.Collapsed;
             matchP.Visibility = Visibility.Collapsed;
 
-           
-            // LATER ADD BOOLEAN WHEN KNOW WHERE TO PLACE IT AT
-            if (!found) // REMBER TO ADD SOME BOOLEAN EXPRESSION WETHER THE IMAGE IS FOUND OR NOT
+            if (!found)
             {
                 textMatch.Text = "Not Match";
                 textMatch.Foreground = System.Windows.Media.Brushes.Red;
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                bitmap.UriSource = new Uri("Image/sad.gif");
+                bitmap.UriSource = new Uri("Image/sad.gif", UriKind.Relative);
                 bitmap.EndInit();
                 IMGresult.Source = bitmap;
                 IMGresult.Visibility = Visibility.Visible;
-                textMatch.Text = "Not Match";
-                textMatch.Foreground = System.Windows.Media.Brushes.Red;
             }
             else
             {
-                // set the bio of the most similar fingerprint
-                setBio(attribute);
+                setBio(attribute ?? new Dictionary<string, string>());
                 string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
-
-                // Combine the project directory with the relative path
                 string absolutePath = System.IO.Path.Combine(projectDirectory, resultPath);
 
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
                 bitmap.UriSource = new Uri(absolutePath, UriKind.RelativeOrAbsolute);
                 bitmap.EndInit();
-                // set the image to the result image
                 IMGresult.Source = bitmap;
-                // show the result image
                 IMGresult.Visibility = Visibility.Visible;
-                // set the text to match
                 textMatch.Text = "Match";
                 textMatch.Foreground = System.Windows.Media.Brushes.Green;
-
             }
 
-            // show the text
             textMatch.Visibility = Visibility.Visible;
-            // set the time taken to the text
-            if (elapsed_time < 1000)
-            {
-                TimeTaken.Text = $"{elapsed_time} ms";
-            }
-            else if (elapsed_time < 60000)
-            {
-                TimeTaken.Text = $"{elapsed_time / 1000} s";
-            }
-            else
-            {
-                TimeTaken.Text = $"{elapsed_time / 60000} m";
-            }
-
-            // set the similarity to the text
+            TimeTaken.Text = elapsed_time < 1000 ? $"{elapsed_time} ms" : elapsed_time < 60000 ? $"{elapsed_time / 1000} s" : $"{elapsed_time / 60000} m";
             persen.Text = $"{similariti * 100}%";
-
-
         }
 
         public void setBio(Dictionary<string, string> attributes)
         {
             NIK.Text = attributes["NIK"];
-            nama.Text = naem;
+            nama.Text = naem ?? string.Empty;
             tempatLahir.Text = attributes["tempat_lahir"];
             tanggalLahir.Text = attributes["tanggal_lahir"];
             jenisKelamin.Text = attributes["jenis_kelamin"];
@@ -232,19 +192,23 @@ namespace Tubes3_SakedikKasep
             kewarganegaraan.Text = attributes["kewarganegaraan"];
         }
 
-        private void Algoritma(){
+        private void Algoritma()
+        {
+            Bitmap? patternBMP = img;
+            if (patternBMP == null)
+            {
+                return;
+            }
 
-            Bitmap patternBMP = img;
             patternBMP = ImageProcessor.GetCenterCrop(patternBMP, patternBMP.Width, 1);
 
             string folderPath = "img";
             string[] bmpFiles = Directory.GetFiles(folderPath, "*.bmp", SearchOption.TopDirectoryOnly);
 
             double maxSimilarity = 0;
-            var path = "";
+            string path = "";
             foreach (var bmpPath in bmpFiles)
             {
-
                 if (algoritma == "KMP")
                 {
                     Bitmap bmp = new Bitmap(bmpPath);
@@ -283,9 +247,7 @@ namespace Tubes3_SakedikKasep
                 }
             }
 
-            // set path to temporary variable
             resultPath = path;
-            // set similarity to temporary variable
             similariti = maxSimilarity;
 
             string namaFile = System.IO.Path.GetFileNameWithoutExtension(path);
@@ -316,7 +278,6 @@ namespace Tubes3_SakedikKasep
                 naem = value;
                 if (dataMap.ContainsKey(name))
                 {
-                    // set the bio of the most similar fingerprint
                     attribute = dataMap[name];
                     found = true;
                 }
@@ -334,10 +295,7 @@ namespace Tubes3_SakedikKasep
             }
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) { }
 
         private void uploadImage(object sender, MouseButtonEventArgs e)
         {
@@ -346,7 +304,7 @@ namespace Tubes3_SakedikKasep
                 Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
                 dlg.DefaultExt = ".jpg";
                 dlg.Filter = "Image Files |*.bmp;*.jpg;*.png";
-                Nullable<bool> result = dlg.ShowDialog();
+                bool? result = dlg.ShowDialog();
                 if (result == true)
                 {
                     string filename = dlg.FileName;
@@ -361,16 +319,11 @@ namespace Tubes3_SakedikKasep
                     fingerImg.Visibility = Visibility.Collapsed;
                     txtFinger.Visibility = Visibility.Collapsed;
 
-                    // Cek if the process has been done before or not
                     if (matchP.Visibility != Visibility.Visible)
                     {
-                        // empty the bio
-                        foreach (var Pair in attribute)
-                        {
-                            attribute[Pair.Key] = "";
-                        }
+                        attribute = new Dictionary<string, string>();
 
-                        if (attribute[attribute.Keys.First()] != "")
+                        if (attribute.Count > 0 && attribute[attribute.Keys.First()] != "")
                         {
                             setBio(attribute);
                             nama.Text = "";
@@ -435,20 +388,5 @@ namespace Tubes3_SakedikKasep
                 MessageBox.Show(ex.Message);
             }
         }
-
-        //private void deleteImg(object sender, MouseButtonEventArgs e)
-        //{
-        //    try
-        //    {
-        //        imgUpld.Source = null;
-        //        fingerImg.Visibility = Visibility.Visible;
-        //        txtFinger.Visibility = Visibility.Visible;
-        //        img = "";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
     }
 }
