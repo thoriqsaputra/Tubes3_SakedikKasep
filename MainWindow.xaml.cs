@@ -96,19 +96,38 @@ namespace Tubes3_SakedikKasep
                             // Periksa apakah kunci sudah ada sebelum menambahkannya
                             if (!dataMap.ContainsKey(nama))
                             {
+                                string nik = reader["NIK"]?.ToString() ?? "Unknown";
+                                string tempatLahir = reader["tempat_lahir"]?.ToString() ?? "Unknown";
+                                string tanggalLahir = reader["tanggal_lahir"]?.ToString();
+                                string jenisKelamin = reader["jenis_kelamin"]?.ToString() ?? "Unknown";
+                                string golonganDarah = reader["golongan_darah"]?.ToString() ?? "Unknown";
+                                string alamat = reader["alamat"]?.ToString() ?? "Unknown";
+                                string agama = reader["agama"]?.ToString() ?? "Unknown";
+                                string statusPerkawinan = reader["status_perkawinan"]?.ToString() ?? "Unknown";
+                                string pekerjaan = reader["pekerjaan"]?.ToString() ?? "Unknown";
+                                string kewarganegaraan = reader["kewarganegaraan"]?.ToString() ?? "Unknown";
+
+                                // Parsing tanggal lahir
+                                DateTime parsedDate;
+                                if (string.IsNullOrEmpty(tanggalLahir) || !DateTime.TryParse(tanggalLahir, out parsedDate))
+                                {
+                                    parsedDate = new DateTime(1900, 1, 1); // Default value
+                                }
+
                                 Dictionary<string, string> attributes = new Dictionary<string, string>
-                            {
-                                { "NIK", reader["NIK"].ToString() },
-                                { "tempat_lahir", reader["tempat_lahir"].ToString() },
-                                { "tanggal_lahir", reader["tanggal_lahir"].ToString() },
-                                { "jenis_kelamin", reader["jenis_kelamin"].ToString() },
-                                { "golongan_darah", reader["golongan_darah"].ToString() },
-                                { "alamat", reader["alamat"].ToString() },
-                                { "agama", reader["agama"].ToString() },
-                                { "status_perkawinan", reader["status_perkawinan"].ToString() },
-                                { "pekerjaan", reader["pekerjaan"].ToString() },
-                                { "kewarganegaraan", reader["kewarganegaraan"].ToString() }
-                            };
+                                {
+                                    { "NIK", nik },
+                                    { "tempat_lahir", tempatLahir },
+                                    { "tanggal_lahir", parsedDate.ToString("yyyy-MM-dd") },
+                                    { "jenis_kelamin", jenisKelamin },
+                                    { "golongan_darah", golonganDarah },
+                                    { "alamat", alamat },
+                                    { "agama", agama },
+                                    { "status_perkawinan", statusPerkawinan },
+                                    { "pekerjaan", pekerjaan },
+                                    { "kewarganegaraan", kewarganegaraan }
+                                };
+
                                 // Tambahkan ke dalam Dictionary dataMap
                                 dataMap.Add(nama, attributes);
                             }

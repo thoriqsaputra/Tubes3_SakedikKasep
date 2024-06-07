@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tubes3_SakedikKasep")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34487cccc1fb0b63c2282493e8210c879fb0afdc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2404d6210b145d944f93696319f6dcedb68bc4b4")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tubes3_SakedikKasep")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tubes3_SakedikKasep")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
