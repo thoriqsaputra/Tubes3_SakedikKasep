@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj": {}
+    "c:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj": {
+    "c:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
+        "projectUniqueName": "c:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
         "projectName": "Tubes3_SakedikKasep",
-        "projectPath": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
+        "projectPath": "c:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\Tubes3_SakedikKasep.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\obj\\",
+        "outputPath": "c:\\Users\\ASUS\\Documents\\Project\\Tubes3_SakedikKasep\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
