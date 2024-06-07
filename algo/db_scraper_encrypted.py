@@ -1,149 +1,183 @@
 import sqlite3
 import random
 from faker import Faker
-from alay_generator import alay_converter_advanced
-from cryptography.hazmat.primitives.asymmetric import rsa
-from cryptography.hazmat.primitives.asymmetric import padding
-from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives import serialization
-
-# Generate RSA keys
-private_key = rsa.generate_private_key(
-    public_exponent=65537,
-    key_size=2048
-)
-public_key = private_key.public_key()
-
-# serialize the private key
-pem_private_key = private_key.private_bytes(
-    encoding=serialization.Encoding.PEM,
-    format=serialization.PrivateFormat.PKCS8,
-    encryption_algorithm=serialization.NoEncryption()
-)
-
-# serialize the public key
-pem_public_key = public_key.public_bytes(
-    encoding=serialization.Encoding.PEM,
-    format=serialization.PublicFormat.SubjectPublicKeyInfo
-)
-
-def encrypt_rsa(public_key, message):
-    ciphertext = public_key.encrypt(
-        message.encode('utf-8'),
-        padding.OAEP(
-            mgf=padding.MGF1(algorithm=hashes.SHA256()),
-            algorithm=hashes.SHA256(),
-            label=None
-        )
-    )
-    return ciphertext
-
-def decrypt_rsa(private_key, ciphertext):
-    plaintext = private_key.decrypt(
-        ciphertext,
-        padding.OAEP(
-            mgf=padding.MGF1(algorithm=hashes.SHA256()),
-            algorithm=hashes.SHA256(),
-            label=None
-        )
-    )
-    return plaintext.decode('utf-8')
-
-# save private key and public key
-with open("Key/private_key.pem", "wb") as f:
-    f.write(pem_private_key)
-
-with open("Key/public_key.pem", "wb") as f:
-    f.write(pem_public_key)
-
-# load private key
-with open("Key/private_key.pem", "rb") as f:
-    private_key = serialization.load_pem_private_key(
-        f.read(),
-        password=None,
-    )
-
-# load public key
-with open("Key/public_key.pem", "rb") as f:
-    public_key = serialization.load_pem_public_key(
-        f.read()
-    )
+from alay_generator import alay_converter_advanced, revert_alay_name
 
 fake = Faker('id_ID')
 
-conn = sqlite3.connect('biodata.db')
+conn = sqlite3.connect('biodata1.db')
 c = conn.cursor()
 
+# Membuat tabel jika belum ada
 c.execute('''
 CREATE TABLE IF NOT EXISTS biodata (
     NIK VARCHAR(16) PRIMARY KEY NOT NULL, 
-    nama BLOB DEFAULT NULL, 
-    tempat_lahir BLOB DEFAULT NULL, 
-    tanggal_lahir BLOB DEFAULT NULL, 
-    jenis_kelamin BLOB, 
-    golongan_darah BLOB DEFAULT NULL, 
-    alamat BLOB DEFAULT NULL, 
-    agama BLOB DEFAULT NULL, 
-    status_perkawinan BLOB, 
-    pekerjaan BLOB DEFAULT NULL, 
-    kewarganegaraan BLOB DEFAULT NULL
+    nama VARCHAR(100) DEFAULT NULL, 
+    tempat_lahir VARCHAR(50) DEFAULT NULL, 
+    tanggal_lahir DATE DEFAULT NULL, 
+    jenis_kelamin TEXT, 
+    golongan_darah VARCHAR(5) DEFAULT NULL, 
+    alamat VARCHAR(255) DEFAULT NULL, 
+    agama VARCHAR(50) DEFAULT NULL, 
+    status_perkawinan TEXT, 
+    pekerjaan VARCHAR(100) DEFAULT NULL, 
+    kewarganegaraan VARCHAR(50) DEFAULT NULL
 )
 ''')
 
 c.execute('''
 CREATE TABLE IF NOT EXISTS sidik_jari (
     berkas_citra TEXT,
-    nama BLOB DEFAULT NULL
+    nama VARCHAR(100) DEFAULT NULL
 )
 ''')
 
+# Fungsi untuk mengenkripsi dengan Caesar Cipher
+def caesar_cipher(text, shift):
+    result = ""
+    for i in range(len(text)):
+        char = text[i]
+        if char.isalpha():
+            shift_base = 65 if char.isupper() else 97
+            result += chr((ord(char) + shift - shift_base) % 26 + shift_base)
+        elif char.isdigit():
+            result += chr((ord(char) + shift - 48) % 10 + 48)
+        else:
+            result += char
+    return result
+
 id = 1
+shift = 4  # Menggunakan pergeseran 4 untuk Caesar Cipher
+
+# Generate records
 for i in range(2000):
     data_nama = fake.name()
-    encrypted_nama = encrypt_rsa(public_key, alay_converter_advanced(data_nama, use_number_symbol=True, use_case_mix=False, use_vowel_removal=False))
     c.execute('''
     INSERT INTO biodata (NIK, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, golongan_darah, alamat, agama, status_perkawinan, pekerjaan, kewarganegaraan) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ''', (
-        str(fake.unique.random_number(digits=16, fix_len=True)),
-        encrypted_nama,
-        encrypt_rsa(public_key, fake.city()),
-        encrypt_rsa(public_key, fake.date_of_birth(minimum_age=18, maximum_age=90).strftime('%Y-%m-%d')),
-        encrypt_rsa(public_key, random.choice(['Laki-Laki', 'Perempuan'])),
-        encrypt_rsa(public_key, random.choice(['A', 'B', 'AB', 'O'])),
-        encrypt_rsa(public_key, fake.address().replace('\n', ', ')),
-        encrypt_rsa(public_key, random.choice(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu'])),
-        encrypt_rsa(public_key, random.choice(['Belum Menikah', 'Menikah', 'Cerai'])),
-        encrypt_rsa(public_key, fake.job()),
-        encrypt_rsa(public_key, 'Indonesia')
+        caesar_cipher(str(fake.unique.random_number(digits=16, fix_len=True)), shift),
+        caesar_cipher(alay_converter_advanced(data_nama, use_number_symbol=True, use_case_mix=False, use_vowel_removal=False), shift),
+        caesar_cipher(fake.city(), shift),
+        fake.date_of_birth(minimum_age=18, maximum_age=90).strftime('%Y-%m-%d'),
+        caesar_cipher(random.choice(['Laki-Laki', 'Perempuan']), shift),
+        caesar_cipher(random.choice(['A', 'B', 'AB', 'O']), shift),
+        caesar_cipher(fake.address().replace('\n', ', '), shift),
+        caesar_cipher(random.choice(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu']), shift),
+        caesar_cipher(random.choice(['Belum Menikah', 'Menikah', 'Cerai']), shift),
+        caesar_cipher(fake.job(), shift),
+        caesar_cipher('Indonesia', shift)
     ))
     c.execute('''
     INSERT INTO sidik_jari (berkas_citra, nama) VALUES (?, ?)
     ''', (
-        str(id),
-        encrypt_rsa(public_key, data_nama)
+        caesar_cipher(str(id), shift),
+        caesar_cipher(data_nama, shift)
+    ))
+    id += 1
+
+# Ulangi proses ini untuk setiap blok data berikutnya dengan enkripsi Caesar Cipher
+for i in range(2000):
+    data_nama = fake.name()
+    c.execute('''
+    INSERT INTO biodata (NIK, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, golongan_darah, alamat, agama, status_perkawinan, pekerjaan, kewarganegaraan) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (
+        caesar_cipher(str(fake.unique.random_number(digits=16, fix_len=True)), shift),
+        caesar_cipher(alay_converter_advanced(data_nama, use_number_symbol=random.choice([True, False]), use_case_mix=random.choice([True, False]), use_vowel_removal=random.choice([True, False])), shift),
+        caesar_cipher(fake.city(), shift),
+        fake.date_of_birth(minimum_age=18, maximum_age=90).strftime('%Y-%m-%d'),
+        caesar_cipher(random.choice(['Laki-Laki', 'Perempuan']), shift),
+        caesar_cipher(random.choice(['A', 'B', 'AB', 'O']), shift),
+        caesar_cipher(fake.address().replace('\n', ', '), shift),
+        caesar_cipher(random.choice(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu']), shift),
+        caesar_cipher(random.choice(['Belum Menikah', 'Menikah', 'Cerai']), shift),
+        caesar_cipher(fake.job(), shift),
+        caesar_cipher('Indonesia', shift)
+    ))
+    c.execute('''
+    INSERT INTO sidik_jari (berkas_citra, nama) VALUES (?, ?)
+    ''', (
+        caesar_cipher(str(id), shift),
+        caesar_cipher(data_nama, shift)
+    ))
+    id += 1
+
+for i in range(1000):
+    data_nama = fake.name()
+    c.execute('''
+    INSERT INTO biodata (NIK, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, golongan_darah, alamat, agama, status_perkawinan, pekerjaan, kewarganegaraan) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (
+        caesar_cipher(str(fake.unique.random_number(digits=16, fix_len=True)), shift),
+        caesar_cipher(alay_converter_advanced(data_nama, use_number_symbol=True, use_case_mix=True, use_vowel_removal=False), shift),
+        caesar_cipher(fake.city(), shift),
+        fake.date_of_birth(minimum_age=18, maximum_age=90).strftime('%Y-%m-%d'),
+        caesar_cipher(random.choice(['Laki-Laki', 'Perempuan']), shift),
+        caesar_cipher(random.choice(['A', 'B', 'AB', 'O']), shift),
+        caesar_cipher(fake.address().replace('\n', ', '), shift),
+        caesar_cipher(random.choice(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu']), shift),
+        caesar_cipher(random.choice(['Belum Menikah', 'Menikah', 'Cerai']), shift),
+        caesar_cipher(fake.job(), shift),
+        caesar_cipher('Indonesia', shift)
+    ))
+    c.execute('''
+    INSERT INTO sidik_jari (berkas_citra, nama) VALUES (?, ?)
+    ''', (
+        caesar_cipher(str(id), shift),
+        caesar_cipher(data_nama, shift)
+    ))
+    id += 1
+
+for i in range(500):
+    data_nama = fake.name()
+    c.execute('''
+    INSERT INTO biodata (NIK, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, golongan_darah, alamat, agama, status_perkawinan, pekerjaan, kewarganegaraan) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (
+        caesar_cipher(str(fake.unique.random_number(digits=16, fix_len=True)), shift),
+        caesar_cipher(alay_converter_advanced(data_nama, use_number_symbol=False, use_case_mix=False, use_vowel_removal=True), shift),
+        caesar_cipher(fake.city(), shift),
+        fake.date_of_birth(minimum_age=18, maximum_age=90).strftime('%Y-%m-%d'),
+        caesar_cipher(random.choice(['Laki-Laki', 'Perempuan']), shift),
+        caesar_cipher(random.choice(['A', 'B', 'AB', 'O']), shift),
+        caesar_cipher(fake.address().replace('\n', ', '), shift),
+        caesar_cipher(random.choice(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu']), shift),
+        caesar_cipher(random.choice(['Belum Menikah', 'Menikah', 'Cerai']), shift),
+        caesar_cipher(fake.job(), shift),
+        caesar_cipher('Indonesia', shift)
+    ))
+    c.execute('''
+    INSERT INTO sidik_jari (berkas_citra, nama) VALUES (?, ?)
+    ''', (
+        caesar_cipher(str(id), shift),
+        caesar_cipher(data_nama, shift)
+    ))
+    id += 1
+
+for i in range(499):
+    data_nama = fake.name()
+    c.execute('''
+    INSERT INTO biodata (NIK, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, golongan_darah, alamat, agama, status_perkawinan, pekerjaan, kewarganegaraan) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (
+        caesar_cipher(str(fake.unique.random_number(digits=16, fix_len=True)), shift),
+        caesar_cipher(alay_converter_advanced(data_nama, use_number_symbol=False, use_case_mix=True, use_vowel_removal=True), shift),
+        caesar_cipher(fake.city(), shift),
+        fake.date_of_birth(minimum_age=18, maximum_age=90).strftime('%Y-%m-%d'),
+        caesar_cipher(random.choice(['Laki-Laki', 'Perempuan']), shift),
+        caesar_cipher(random.choice(['A', 'B', 'AB', 'O']), shift),
+        caesar_cipher(fake.address().replace('\n', ', '), shift),
+        caesar_cipher(random.choice(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu']), shift),
+        caesar_cipher(random.choice(['Belum Menikah', 'Menikah', 'Cerai']), shift),
+        caesar_cipher(fake.job(), shift),
+        caesar_cipher('Indonesia', shift)
+    ))
+    c.execute('''
+    INSERT INTO sidik_jari (berkas_citra, nama) VALUES (?, ?)
+    ''', (
+        caesar_cipher(str(id), shift),
+        caesar_cipher(data_nama, shift)
     ))
     id += 1
 
 conn.commit()
 
-# Decrypting the data from the database
-# c.execute('SELECT NIK, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, golongan_darah, alamat, agama, status_perkawinan, pekerjaan, kewarganegaraan FROM biodata')
-# rows = c.fetchall()
-
-# for row in rows:
-#     decrypted_row = [
-#         row[0],  # NIK is not encrypted
-#         decrypt_rsa(private_key, row[1]),
-#         decrypt_rsa(private_key, row[2]),
-#         decrypt_rsa(private_key, row[3]),
-#         decrypt_rsa(private_key, row[4]),
-#         decrypt_rsa(private_key, row[5]),
-#         decrypt_rsa(private_key, row[6]),
-#         decrypt_rsa(private_key, row[7]),
-#         decrypt_rsa(private_key, row[8]),
-#         decrypt_rsa(private_key, row[9]),
-#         decrypt_rsa(private_key, row[10]),
-#     ]
-#     print(decrypted_row)
-
 conn.close()
+
+print(f'{id} records generated and saved to biodata.db')

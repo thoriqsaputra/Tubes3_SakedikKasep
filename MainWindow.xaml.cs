@@ -55,7 +55,7 @@ namespace Tubes3_SakedikKasep
         {
             InitializeComponent();
 
-            string connectionString = "Data Source=biodata.db;Version=3;";
+            string connectionString = "Data Source=biodata_encrypted.db;Version=3;";
             sidikJariMap = new Dictionary<string, string>();
             dataMap = new Dictionary<string, Dictionary<string, string>>();
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -96,38 +96,19 @@ namespace Tubes3_SakedikKasep
                             // Periksa apakah kunci sudah ada sebelum menambahkannya
                             if (!dataMap.ContainsKey(nama))
                             {
-                                string nik = reader["NIK"]?.ToString() ?? "Unknown";
-                                string tempatLahir = reader["tempat_lahir"]?.ToString() ?? "Unknown";
-                                string tanggalLahir = reader["tanggal_lahir"]?.ToString();
-                                string jenisKelamin = reader["jenis_kelamin"]?.ToString() ?? "Unknown";
-                                string golonganDarah = reader["golongan_darah"]?.ToString() ?? "Unknown";
-                                string alamat = reader["alamat"]?.ToString() ?? "Unknown";
-                                string agama = reader["agama"]?.ToString() ?? "Unknown";
-                                string statusPerkawinan = reader["status_perkawinan"]?.ToString() ?? "Unknown";
-                                string pekerjaan = reader["pekerjaan"]?.ToString() ?? "Unknown";
-                                string kewarganegaraan = reader["kewarganegaraan"]?.ToString() ?? "Unknown";
-
-                                // Parsing tanggal lahir
-                                DateTime parsedDate;
-                                if (string.IsNullOrEmpty(tanggalLahir) || !DateTime.TryParse(tanggalLahir, out parsedDate))
-                                {
-                                    parsedDate = new DateTime(1900, 1, 1); // Default value
-                                }
-
                                 Dictionary<string, string> attributes = new Dictionary<string, string>
-                                {
-                                    { "NIK", nik },
-                                    { "tempat_lahir", tempatLahir },
-                                    { "tanggal_lahir", parsedDate.ToString("yyyy-MM-dd") },
-                                    { "jenis_kelamin", jenisKelamin },
-                                    { "golongan_darah", golonganDarah },
-                                    { "alamat", alamat },
-                                    { "agama", agama },
-                                    { "status_perkawinan", statusPerkawinan },
-                                    { "pekerjaan", pekerjaan },
-                                    { "kewarganegaraan", kewarganegaraan }
-                                };
-
+                            {
+                                { "NIK", DecryptCaesarCipher(reader["NIK"].ToString(), 4) },
+                                { "tempat_lahir", DecryptCaesarCipher(reader["tempat_lahir"].ToString(), 4) },
+                                { "tanggal_lahir", reader["tanggal_lahir"].ToString() },
+                                { "jenis_kelamin", DecryptCaesarCipher(reader["jenis_kelamin"].ToString(), 4) },
+                                { "golongan_darah", DecryptCaesarCipher(reader["golongan_darah"].ToString(), 4) },
+                                { "alamat", DecryptCaesarCipher(reader["alamat"].ToString(), 4) },
+                                { "agama", DecryptCaesarCipher(reader["agama"].ToString(), 4) },
+                                { "status_perkawinan", DecryptCaesarCipher(reader["status_perkawinan"].ToString(), 4) },
+                                { "pekerjaan", DecryptCaesarCipher(reader["pekerjaan"].ToString(), 4) },
+                                { "kewarganegaraan", DecryptCaesarCipher(reader["kewarganegaraan"].ToString(), 4) }
+                            };
                                 // Tambahkan ke dalam Dictionary dataMap
                                 dataMap.Add(nama, attributes);
                             }
@@ -136,6 +117,35 @@ namespace Tubes3_SakedikKasep
                 }
             }
 
+        }
+
+        private string DecryptCaesarCipher(string text, int shift)
+        {
+            return CaesarCipher(text, -shift);
+        }
+
+        private string CaesarCipher(string text, int shift)
+        {
+            string result = "";
+            shift = (shift % 26 + 26) % 26;  // Ensure shift is within 0-25
+
+            foreach (char c in text)
+            {
+                if (char.IsLetter(c))
+                {
+                    char d = char.IsUpper(c) ? 'A' : 'a';
+                    result += (char)((c - d + shift) % 26 + d);
+                }
+                else if (char.IsDigit(c))
+                {
+                    result += (char)((c - '0' + shift) % 10 + '0');
+                }
+                else
+                {
+                    result += c;
+                }
+            }
+            return result;
         }
 
         private async void runAlgoritma(Object sender, RoutedEventArgs eventArgs)
