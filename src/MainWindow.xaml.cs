@@ -148,13 +148,18 @@ namespace Tubes3_SakedikKasep
             // Cek if the image and algorithm has been selected or not
             if (img == null)
             {
-                MessageBox.Show("Silahkan upload gambar sidik jari terlebih dahulu.");
+                MessageBox.Show("Please upload a fingerprint image first!");
                 return;
             }
             else if (algoritma == null)
             {
-                MessageBox.Show("Silahkan pilih algoritma terlebih dahulu.");
+                MessageBox.Show("Please select one algorithm!");
                 return;
+            }
+
+            if (noSad.Visibility == Visibility.Visible)
+            {
+                noSad.Visibility = Visibility.Collapsed;
             }
 
             // set the found to false
@@ -181,12 +186,13 @@ namespace Tubes3_SakedikKasep
             textMatch.Visibility = Visibility.Collapsed;
             matchP.Visibility = Visibility.Collapsed;
 
-           
             // LATER ADD BOOLEAN WHEN KNOW WHERE TO PLACE IT AT
-            if (!found) // REMBER TO ADD SOME BOOLEAN EXPRESSION WETHER THE IMAGE IS FOUND OR NOT
+            if (similariti < 0.6) // REMBER TO ADD SOME BOOLEAN EXPRESSION WETHER THE IMAGE IS FOUND OR NOT
             { 
+                noSad.Visibility = Visibility.Visible;
                 textMatch.Text = "Not Match";
                 textMatch.Foreground = System.Windows.Media.Brushes.Red;
+                porsen.Text = "Biggest Similarity:";
             }
             else
             {
@@ -208,7 +214,7 @@ namespace Tubes3_SakedikKasep
                 // set the text to match
                 textMatch.Text = "Match";
                 textMatch.Foreground = System.Windows.Media.Brushes.Green;
-
+                porsen.Text = "Percentage of Similarity:";
             }
 
             // show the text
@@ -220,15 +226,15 @@ namespace Tubes3_SakedikKasep
             }
             else if (elapsed_time < 60000)
             {
-                TimeTaken.Text = $"{elapsed_time / 1000} s";
+                TimeTaken.Text = $"{(elapsed_time / 1000.0).ToString("F2")} s";
             }
             else
             {
-                TimeTaken.Text = $"{elapsed_time / 60000} m";
+                TimeTaken.Text = $"{(elapsed_time / 60000.0).ToString("F2")} m";
             }
 
-            // set the similarity to the text
-            persen.Text = $"{similariti * 100}%";
+            persen.Text = $"{(similariti * 100).ToString("#.##")}%";
+
         }
 
         public void setBio(Dictionary<string, string> attributes)
@@ -251,7 +257,7 @@ namespace Tubes3_SakedikKasep
             Bitmap patternBMP = img;
             patternBMP = ImageProcessor.GetCenterCrop(patternBMP, patternBMP.Width, 5);
 
-            string folderPath = "../test/img";
+            string folderPath = "../test";
             string[] bmpFiles = Directory.GetFiles(folderPath, "*.bmp", SearchOption.TopDirectoryOnly);
 
             double maxSimilarity = 0;
@@ -374,6 +380,11 @@ namespace Tubes3_SakedikKasep
                     img = new Bitmap(filename);
                     fingerImg.Visibility = Visibility.Collapsed;
                     txtFinger.Visibility = Visibility.Collapsed;
+
+                    if (noSad.Visibility == Visibility.Visible)
+                    {
+                        noSad.Visibility = Visibility.Collapsed;
+                    }
 
                     // Cek if the process has been done before or not
                     if (matchP.Visibility != Visibility.Visible)

@@ -25,8 +25,8 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            
-            
+
+
 
             <Grid Grid.ColumnSpan="2">
                 <Border CornerRadius="12 12 0 0" 
@@ -166,7 +166,6 @@
                                Grid.RowSpan="2"
                                 Visibility="Collapsed"
                         />
-
                         <Image x:Name="noSad"
                                Grid.Row="0"
                                gif:ImageBehavior.AnimatedSource="Image/sad.gif"
@@ -336,7 +335,7 @@
                                        FontWeight="Bold"
                                        Foreground="DarkCyan"
                                        HorizontalAlignment="Left"
-                                       VerticalAlignment="Center" Margin="10,0,0,0"/>
+                                       VerticalAlignment="Center"/>
                             <TextBlock Text="-ms"
                                        x:Name="TimeTaken"
                                        FontFamily="Font/#Marcellus"
@@ -344,29 +343,30 @@
                                        FontWeight="Bold"
                                        Foreground="DarkCyan"
                                        HorizontalAlignment="Left"
-                                       VerticalAlignment="Center" Margin="10,0,0,0"/>
+                                       VerticalAlignment="Center" Margin="5,0,0,0"/>
                         </StackPanel>
 
 
                         <StackPanel Orientation="Horizontal"
                                     Grid.Row="1" Margin="0,0,-10,0">
                             <TextBlock Text="Percentage of Similarity:"
+                                       x:Name="porsen"
                                        FontFamily="Font/#Marcellus"
                                        FontSize="22"
                                        FontWeight="Bold"
                                        Foreground="DarkCyan"
                                        HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
-                                       Grid.Row="1" Margin="10,0,0,0"/>
-                            <TextBlock Text="-%"
+                                       Grid.Row="1"/>
+                            <TextBlock
                                        x:Name="persen"
                                        FontFamily="Font/#Marcellus"
                                        FontSize="22"
                                        FontWeight="Bold"
                                        Foreground="DarkCyan"
-                                       HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
-                                       Grid.Row="1" Margin="10,0,0,0"/>
+                                       Grid.Row="1" Margin="5"
+                                        Text="-%"/>
                         </StackPanel>
 
 
@@ -406,62 +406,62 @@
                             <Grid
                                 Width="300"
                                 HorizontalAlignment="Center">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="97*"/>
-                                        <ColumnDefinition Width="13"/>
-                                        <ColumnDefinition Width="190*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="97*"/>
+                                    <ColumnDefinition Width="13"/>
+                                    <ColumnDefinition Width="190*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
 
-                                    <TextBlock Text=":" Grid.Row="0" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
-                                    <TextBlock Text=":" Grid.Row="1" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
-                                    <TextBlock Text=":" Grid.Row="2" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
-                                    <TextBlock Text=":" Grid.Row="3" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
-                                    <TextBlock Text=":" Grid.Row="4" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
-                                    <TextBlock Text=":" Grid.Row="5" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
-                                    <TextBlock Text=":" Grid.Row="6" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Font/#Marcellus" Height="20" Width="10" />
-                                    <TextBlock Text=":" Grid.Row="7" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
-                                    <TextBlock Text=":" Grid.Row="8" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
-                                    <TextBlock Text=":" Grid.Row="9" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Font/#Marcellus" Height="20" Width="10" />
-                                    <TextBlock Text=":" Grid.Row="10" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
+                                <TextBlock Text=":" Grid.Row="0" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
+                                <TextBlock Text=":" Grid.Row="1" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
+                                <TextBlock Text=":" Grid.Row="2" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
+                                <TextBlock Text=":" Grid.Row="3" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
+                                <TextBlock Text=":" Grid.Row="4" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
+                                <TextBlock Text=":" Grid.Row="5" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
+                                <TextBlock Text=":" Grid.Row="6" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Font/#Marcellus" Height="20" Width="10" />
+                                <TextBlock Text=":" Grid.Row="7" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
+                                <TextBlock Text=":" Grid.Row="8" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
+                                <TextBlock Text=":" Grid.Row="9" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Font/#Marcellus" Height="20" Width="10" />
+                                <TextBlock Text=":" Grid.Row="10" Grid.Column="1" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="10" />
 
-                                    <TextBlock Text="NIK" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="40"/>
-                                    <TextBlock Text="Name" Grid.Row="1" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="40"/>
-                                    <TextBlock Grid.Row="2" Text="Place of Birth" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="90" />
-                                    <TextBlock Grid.Row="3" Text="Date of Birth" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="87"/>
-                                    <TextBlock Grid.Row="4" Text="Gender" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="51" />
-                                    <TextBlock Grid.Row="5" Text="Blood type" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="74"/>
-                                    <TextBlock Grid.Row="6" Text="Adress" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Font/#Marcellus" Height="20" Width="44" />
-                                    <TextBlock Grid.Row="7" Text="Religion" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="54" />
-                                    <TextBlock Grid.Row="8" Text="Marital Status" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="94" />
-                                    <TextBlock Grid.Row="9" Text="Occupation" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Font/#Marcellus" Height="20" Width="79" />
-                                    <TextBlock Grid.Row="10" Text="Nationality" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="74" />
+                                <TextBlock Text="NIK" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="40"/>
+                                <TextBlock Text="Name" Grid.Row="1" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="40"/>
+                                <TextBlock Grid.Row="2" Text="Place of Birth" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="90" />
+                                <TextBlock Grid.Row="3" Text="Date of Birth" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="87"/>
+                                <TextBlock Grid.Row="4" Text="Gender" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="51" />
+                                <TextBlock Grid.Row="5" Text="Blood type" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="74"/>
+                                <TextBlock Grid.Row="6" Text="Adress" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Font/#Marcellus" Height="20" Width="44" />
+                                <TextBlock Grid.Row="7" Text="Religion" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="54" />
+                                <TextBlock Grid.Row="8" Text="Marital Status" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="94" />
+                                <TextBlock Grid.Row="9" Text="Occupation" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Font/#Marcellus" Height="20" Width="79" />
+                                <TextBlock Grid.Row="10" Text="Nationality" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" Width="74" />
 
 
-                                    <TextBlock x:Name="NIK" Grid.Row="0" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
-                                    <TextBlock x:Name="nama" Grid.Row="1" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
-                                    <TextBlock x:Name="tempatLahir" Grid.Row="2" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
-                                    <TextBlock x:Name="tanggalLahir" Grid.Row="3" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
-                                    <TextBlock x:Name="jenisKelamin" Grid.Row="4" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
-                                    <TextBlock x:Name="golonganDarah" Grid.Row="5" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
-                                    <TextBlock x:Name="alamat" Grid.Row="6" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" FontFamily="Font/#Marcellus" Height="40" />
-                                    <TextBlock x:Name="agama" Grid.Row="7" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
-                                    <TextBlock x:Name="statusPerkawinan" Grid.Row="8" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
-                                    <TextBlock x:Name="pekerjaan" Grid.Row="9" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"       FontFamily="Font/#Marcellus" Height="40" />
-                                    <TextBlock x:Name="kewarganegaraan" Grid.Row="10" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
-                                </Grid>
+                                <TextBlock x:Name="NIK" Grid.Row="0" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
+                                <TextBlock x:Name="nama" Grid.Row="1" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
+                                <TextBlock x:Name="tempatLahir" Grid.Row="2" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
+                                <TextBlock x:Name="tanggalLahir" Grid.Row="3" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
+                                <TextBlock x:Name="jenisKelamin" Grid.Row="4" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
+                                <TextBlock x:Name="golonganDarah" Grid.Row="5" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
+                                <TextBlock x:Name="alamat" Grid.Row="6" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" FontFamily="Font/#Marcellus" Height="40" />
+                                <TextBlock x:Name="agama" Grid.Row="7" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
+                                <TextBlock x:Name="statusPerkawinan" Grid.Row="8" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
+                                <TextBlock x:Name="pekerjaan" Grid.Row="9" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"       FontFamily="Font/#Marcellus" Height="40" />
+                                <TextBlock x:Name="kewarganegaraan" Grid.Row="10" Grid.Column="2" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Font/#Marcellus" Height="20" />
+                            </Grid>
                         </StackPanel>
 
                     </Border>
@@ -476,7 +476,7 @@
                   x:Name="loading"
                 Visibility="Collapsed"
                   >
-                  
+
                 <Border
                     Grid.ColumnSpan="2"
                     Background="BlanchedAlmond"
@@ -507,7 +507,7 @@
 
 
         </Grid>
-        
+
 
     </Border>
 </Window>
