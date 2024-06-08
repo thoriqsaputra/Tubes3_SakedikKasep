@@ -190,7 +190,7 @@ namespace Tubes3_SakedikKasep
             if (similariti < 0.6) // REMBER TO ADD SOME BOOLEAN EXPRESSION WETHER THE IMAGE IS FOUND OR NOT
             { 
                 noSad.Visibility = Visibility.Visible;
-                textMatch.Text = "Not Match";
+                textMatch.Text = "No Match";
                 textMatch.Foreground = System.Windows.Media.Brushes.Red;
                 porsen.Text = "Biggest Similarity:";
             }
