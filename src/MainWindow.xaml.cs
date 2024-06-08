@@ -143,115 +143,6 @@ namespace Tubes3_SakedikKasep
             return result;
         }
 
-        private async void runAlgoritma(Object sender, RoutedEventArgs eventArgs)
-        {
-            // Cek if the image and algorithm has been selected or not
-            if (img == null)
-            {
-                MessageBox.Show("Please upload a fingerprint image first!");
-                return;
-            }
-            else if (algoritma == null)
-            {
-                MessageBox.Show("Please select one algorithm!");
-                return;
-            }
-
-            if (noSad.Visibility == Visibility.Visible)
-            {
-                noSad.Visibility = Visibility.Collapsed;
-            }
-
-            // set the found to false
-            found = false;
-
-            // show loading animation
-            loading.Visibility = Visibility.Visible;
-
-            Stopwatch stopwatch = new Stopwatch(); // create new stopwatch
-
-            stopwatch.Start(); // start the stopwatch
-
-            await Task.Run(() => Algoritma()); // Run the algorithm
-
-            stopwatch.Stop(); // stop the stopwatch
-
-            // get the elapsed time
-            long elapsed_time = stopwatch.ElapsedMilliseconds;
-
-            // hide loading animation
-            loading.Visibility = Visibility.Collapsed;
-
-            // Hide the placeHolder for the result image
-            textMatch.Visibility = Visibility.Collapsed;
-            matchP.Visibility = Visibility.Collapsed;
-
-            // LATER ADD BOOLEAN WHEN KNOW WHERE TO PLACE IT AT
-            if (similariti < 0.6) // REMBER TO ADD SOME BOOLEAN EXPRESSION WETHER THE IMAGE IS FOUND OR NOT
-            { 
-                noSad.Visibility = Visibility.Visible;
-                textMatch.Text = "No Match";
-                textMatch.Foreground = System.Windows.Media.Brushes.Red;
-                porsen.Text = "Biggest Similarity:";
-            }
-            else
-            {
-                // set the bio of the most similar fingerprint
-                setBio(attribute);
-                string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
-
-                // Combine the project directory with the relative path
-                string absolutePath = System.IO.Path.Combine(projectDirectory, resultPath);
-
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(absolutePath, UriKind.RelativeOrAbsolute);
-                bitmap.EndInit();
-                // set the image to the result image
-                IMGresult.Source = bitmap;
-                // show the result image
-                IMGresult.Visibility = Visibility.Visible;
-                // set the text to match
-                textMatch.Text = "Match";
-                textMatch.Foreground = System.Windows.Media.Brushes.Green;
-                porsen.Text = "Percentage of Similarity:";
-            }
-
-            // show the text
-            textMatch.Visibility = Visibility.Visible;
-            // set the time taken to the text
-            if (elapsed_time < 1000)
-            {
-                TimeTaken.Text = $"{elapsed_time} ms";
-            }
-            else if (elapsed_time < 60000)
-            {
-                TimeTaken.Text = $"{(elapsed_time / 1000.0).ToString("F2")} s";
-            }
-            else
-            {
-                TimeTaken.Text = $"{(elapsed_time / 60000.0).ToString("F2")} m";
-            }
-
-            persen.Text = $"{(similariti * 100).ToString("#.##")}%";
-
-        }
-
-        public void setBio(Dictionary<string, string> attributes)
-        {
-            NIK.Text = attributes["NIK"];
-            nama.Text = naem;
-            tempatLahir.Text = attributes["tempat_lahir"];
-            tanggalLahir.Text = attributes["tanggal_lahir"];
-            jenisKelamin.Text = attributes["jenis_kelamin"];
-            golonganDarah.Text = attributes["golongan_darah"];
-            alamat.Text = attributes["alamat"];
-            agama.Text = attributes["agama"];
-            statusPerkawinan.Text = attributes["status_perkawinan"];
-            pekerjaan.Text = attributes["pekerjaan"];
-            kewarganegaraan.Text = attributes["kewarganegaraan"];
-        }
-
         private void Algoritma(){
 
             Bitmap patternBMP = img;
@@ -353,10 +244,113 @@ namespace Tubes3_SakedikKasep
                 found = false;
             }
         }
-
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void runAlgoritma(Object sender, RoutedEventArgs eventArgs)
         {
+            // Cek if the image and algorithm has been selected or not
+            if (img == null)
+            {
+                MessageBox.Show("Please upload a fingerprint image first!");
+                return;
+            }
+            else if (algoritma == null)
+            {
+                MessageBox.Show("Please select one algorithm!");
+                return;
+            }
 
+            if (noSad.Visibility == Visibility.Visible)
+            {
+                noSad.Visibility = Visibility.Collapsed;
+            }
+
+            // set the found to false
+            found = false;
+
+            // show loading animation
+            loading.Visibility = Visibility.Visible;
+
+            Stopwatch stopwatch = new Stopwatch(); // create new stopwatch
+
+            stopwatch.Start(); // start the stopwatch
+
+            await Task.Run(() => Algoritma()); // Run the algorithm
+
+            stopwatch.Stop(); // stop the stopwatch
+
+            // get the elapsed time
+            long elapsed_time = stopwatch.ElapsedMilliseconds;
+
+            // hide loading animation
+            loading.Visibility = Visibility.Collapsed;
+
+            // Hide the placeHolder for the result image
+            textMatch.Visibility = Visibility.Collapsed;
+            matchP.Visibility = Visibility.Collapsed;
+
+            // LATER ADD BOOLEAN WHEN KNOW WHERE TO PLACE IT AT
+            if (similariti < 0.6) // REMBER TO ADD SOME BOOLEAN EXPRESSION WETHER THE IMAGE IS FOUND OR NOT
+            {
+                noSad.Visibility = Visibility.Visible;
+                textMatch.Text = "No Match";
+                textMatch.Foreground = System.Windows.Media.Brushes.Red;
+                porsen.Text = "Biggest Similarity:";
+            }
+            else
+            {
+                // set the bio of the most similar fingerprint
+                setBio(attribute);
+                string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+
+                // Combine the project directory with the relative path
+                string absolutePath = System.IO.Path.Combine(projectDirectory, resultPath);
+
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(absolutePath, UriKind.RelativeOrAbsolute);
+                bitmap.EndInit();
+                // set the image to the result image
+                IMGresult.Source = bitmap;
+                // show the result image
+                IMGresult.Visibility = Visibility.Visible;
+                // set the text to match
+                textMatch.Text = "Match";
+                textMatch.Foreground = System.Windows.Media.Brushes.Green;
+                porsen.Text = "Percentage of Similarity:";
+            }
+
+            // show the text
+            textMatch.Visibility = Visibility.Visible;
+            // set the time taken to the text
+            if (elapsed_time < 1000)
+            {
+                TimeTaken.Text = $"{elapsed_time} ms";
+            }
+            else if (elapsed_time < 60000)
+            {
+                TimeTaken.Text = $"{(elapsed_time / 1000.0).ToString("F2")} s";
+            }
+            else
+            {
+                TimeTaken.Text = $"{(elapsed_time / 60000.0).ToString("F2")} m";
+            }
+
+            persen.Text = $"{(similariti * 100).ToString("#.##")}%";
+
+        }
+
+        public void setBio(Dictionary<string, string> attributes)
+        {
+            NIK.Text = attributes["NIK"];
+            nama.Text = naem;
+            tempatLahir.Text = attributes["tempat_lahir"];
+            tanggalLahir.Text = attributes["tanggal_lahir"];
+            jenisKelamin.Text = attributes["jenis_kelamin"];
+            golonganDarah.Text = attributes["golongan_darah"];
+            alamat.Text = attributes["alamat"];
+            agama.Text = attributes["agama"];
+            statusPerkawinan.Text = attributes["status_perkawinan"];
+            pekerjaan.Text = attributes["pekerjaan"];
+            kewarganegaraan.Text = attributes["kewarganegaraan"];
         }
 
         private void uploadImage(object sender, MouseButtonEventArgs e)
@@ -460,20 +454,5 @@ namespace Tubes3_SakedikKasep
                 MessageBox.Show(ex.Message);
             }
         }
-
-        //private void deleteImg(object sender, MouseButtonEventArgs e)
-        //{
-        //    try
-        //    {
-        //        imgUpld.Source = null;
-        //        fingerImg.Visibility = Visibility.Visible;
-        //        txtFinger.Visibility = Visibility.Visible;
-        //        img = "";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
     }
 }
