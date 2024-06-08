@@ -1,15 +1,13 @@
 import sqlite3
 
 def enkripsi_sqlite(input_db_file, output_db_file):
-    # Koneksi ke database input
+
     input_conn = sqlite3.connect(input_db_file)
     input_c = input_conn.cursor()
 
-    # Koneksi ke database output
     output_conn = sqlite3.connect(output_db_file)
     output_c = output_conn.cursor()
 
-    # Membuat tabel di database output jika belum ada
     output_c.execute('''
     CREATE TABLE IF NOT EXISTS biodata (
         NIK VARCHAR(16) PRIMARY KEY NOT NULL, 
@@ -33,7 +31,7 @@ def enkripsi_sqlite(input_db_file, output_db_file):
     )
     ''')
 
-    # Fungsi untuk mengenkripsi dengan Caesar Cipher
+    # encrypt using caesar cipher
     def caesar_cipher(text, shift):
         result = ""
         for char in text:
@@ -46,19 +44,18 @@ def enkripsi_sqlite(input_db_file, output_db_file):
                 result += char
         return result
 
-    shift = 4  # Menggunakan pergeseran 4 untuk Caesar Cipher
+    shift = 4  # shift 4 place
 
-    # Membaca data dari tabel biodata di database input
     input_c.execute('SELECT * FROM biodata')
     biodata_rows = input_c.fetchall()
 
-    # Mengenkripsi dan memasukkan data ke tabel biodata di database output
+    # encrypt database
     for row in biodata_rows:
         encrypted_row = [
             caesar_cipher(str(row[0]), shift) if row[0] is not None else None,  # NIK
             caesar_cipher(row[1], shift) if row[1] is not None else None,  # nama
             caesar_cipher(row[2], shift) if row[2] is not None else None,  # tempat_lahir
-            row[3],  # tanggal_lahir (tidak dienkripsi)
+            row[3],  # tanggal_lahir (not encrypted)
             caesar_cipher(row[4], shift) if row[4] is not None else None,  # jenis_kelamin
             caesar_cipher(row[5], shift) if row[5] is not None else None,  # golongan_darah
             caesar_cipher(row[6], shift) if row[6] is not None else None,  # alamat
@@ -71,11 +68,10 @@ def enkripsi_sqlite(input_db_file, output_db_file):
         INSERT INTO biodata (NIK, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, golongan_darah, alamat, agama, status_perkawinan, pekerjaan, kewarganegaraan) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ''', encrypted_row)
 
-    # # Membaca data dari tabel sidik_jari di database input
     input_c.execute('SELECT * FROM sidik_jari')
     sidik_jari_rows = input_c.fetchall()
 
-    # Mengenkripsi dan memasukkan data ke tabel sidik_jari di database output
+    # insert to the encrypted database without encrypt it
     for row in sidik_jari_rows:
         row = [
             row[0] if row[0] is not None else None,  # berkas_citra
@@ -85,12 +81,11 @@ def enkripsi_sqlite(input_db_file, output_db_file):
         INSERT INTO sidik_jari (berkas_citra, nama) VALUES (?, ?)
         ''', row)
 
-    # Menutup koneksi
     input_conn.close()
     output_conn.commit()
     output_conn.close()
 
     print(f'Data terenkripsi telah disimpan di {output_db_file}')
 
-# Penggunaan script dengan file .db yang dimasukkan dan output
+# encrypt the database
 enkripsi_sqlite('biodata.db', 'biodata_encrypted.db')

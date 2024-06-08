@@ -8,7 +8,6 @@ fake = Faker('id_ID')
 conn = sqlite3.connect('biodata.db')
 c = conn.cursor()
 
-# Membuat tabel jika belum ada
 c.execute('''
 CREATE TABLE IF NOT EXISTS biodata (
     NIK VARCHAR(16) PRIMARY KEY NOT NULL, 
@@ -32,8 +31,8 @@ CREATE TABLE IF NOT EXISTS sidik_jari (
 )
 ''')
 
-id = 1
-# Generate records
+id = 1 # starting from id 1
+# generate records
 for i in range(2000):
     data_nama = fake.name()
     c.execute('''
