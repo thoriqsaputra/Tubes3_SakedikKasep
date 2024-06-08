@@ -264,7 +264,7 @@ namespace Tubes3_SakedikKasep
         private void Algoritma(){
 
             Bitmap patternBMP = img;
-            patternBMP = ImageProcessor.GetCenterCrop(patternBMP, patternBMP.Width, 1);
+            patternBMP = ImageProcessor.GetCenterCrop(patternBMP, patternBMP.Width, 5);
 
             string folderPath = "img";
             string[] bmpFiles = Directory.GetFiles(folderPath, "*.bmp", SearchOption.TopDirectoryOnly);
@@ -295,6 +295,9 @@ namespace Tubes3_SakedikKasep
                         maxSimilarity = result.similarity;
                         path = bmpPath;
                     }
+                    if(bmpPath=="img\\1030.BMP"){
+                        MessageBox.Show( result.similarity.ToString());
+                    }
                 }
                 else
                 {
@@ -313,6 +316,9 @@ namespace Tubes3_SakedikKasep
                         maxSimilarity = similarity;
                         path = bmpPath;
                     }
+                    if(bmpPath=="img\\1030.BMP"){
+                        MessageBox.Show(similarity.ToString());
+                    }
                 }
             }
 
@@ -320,6 +326,7 @@ namespace Tubes3_SakedikKasep
             resultPath = path;
             // set similarity to temporary variable
             similariti = maxSimilarity;
+            MessageBox.Show(path);
 
             string namaFile = System.IO.Path.GetFileNameWithoutExtension(path);
 
