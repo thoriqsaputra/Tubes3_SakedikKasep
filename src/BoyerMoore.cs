@@ -6,7 +6,7 @@ public class BoyerMoore
 {
    public static double BmMatch(string text, string pattern)
     {
-        Dictionary<int, int> last = BuildLast(pattern);
+        Dictionary<char, int> last = BuildLast(pattern);
         int n = text.Length;
         int m = pattern.Length;
         int i = m - 1;
@@ -52,12 +52,10 @@ public class BoyerMoore
         return maxSimilarity;
     }
 
-    // Metode untuk membangun tabel 'last' untuk pola yang diberikan
-    public static Dictionary<int, int> BuildLast(string pattern)
+    public static Dictionary<char, int> BuildLast(string pattern)
     {
-        Dictionary<int, int> last = new Dictionary<int, int>();
+        Dictionary<char, int> last = new Dictionary<char, int>();
 
-        // Mengisi tabel dengan posisi terakhir dari setiap karakter dalam pola
         for (int i = 0; i < pattern.Length; i++)
             last[pattern[i]] = i;
 

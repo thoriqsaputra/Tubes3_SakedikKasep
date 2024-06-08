@@ -12,11 +12,8 @@ public class BitmapToBinaryAsciiConverter
         {
             for (int x = 0; x < original.Width; x++)
             {
-                // Mendapatkan warna piksel
                 System.Drawing.Color originalColor = original.GetPixel(x, y);
-                // Mengubah warna piksel menjadi grayscale
                 int grayScale = (int)((originalColor.R * 0.3) + (originalColor.G * 0.59) + (originalColor.B * 0.11));
-                // Mengubah piksel menjadi hitam atau putih berdasarkan threshold
                 System.Drawing.Color binaryColor = grayScale < threshold ? System.Drawing.Color.Black : System.Drawing.Color.White;
                 binaryImage.SetPixel(x, y, binaryColor);
             }
@@ -25,7 +22,6 @@ public class BitmapToBinaryAsciiConverter
         StringBuilder binaryStringBuilder = new StringBuilder();
         StringBuilder asciiArt = new StringBuilder();
 
-        // Mengonversi gambar biner menjadi string biner
         for (int y = 0; y < binaryImage.Height; y++)
         {
             for (int x = 0; x < binaryImage.Width; x++)
@@ -37,7 +33,6 @@ public class BitmapToBinaryAsciiConverter
 
         string binaryString = binaryStringBuilder.ToString();
 
-        // Mengonversi setiap 8 bit biner menjadi karakter ASCII
         for (int i = 0; i < binaryString.Length; i += 8)
         {
             if (i + 8 <= binaryString.Length)
