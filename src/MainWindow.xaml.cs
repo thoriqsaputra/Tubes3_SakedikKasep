@@ -294,6 +294,11 @@ namespace Tubes3_SakedikKasep
                 textMatch.Text = "No Match";
                 textMatch.Foreground = System.Windows.Media.Brushes.Red;
                 porsen.Text = "Biggest Similarity:";
+
+                if (IMGresult.Visibility == Visibility.Visible)
+                {
+                    IMGresult.Visibility = Visibility.Collapsed;
+                }
             }
             else
             {
