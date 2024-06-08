@@ -271,6 +271,8 @@ namespace Tubes3_SakedikKasep
 
             double maxSimilarity = 0;
             var path = "";
+            bool exactMatchFound = false;
+
             foreach (var bmpPath in bmpFiles)
             {
 
@@ -282,10 +284,12 @@ namespace Tubes3_SakedikKasep
                     var result = KMPAlgorithm.KmpMatch(oir, asciiArt);
                     if (result.similarity == 1)
                     {
-                        maxSimilarity = result.similarity;
+                        exactMatchFound = true;
+                        maxSimilarity = result.similarity; // Exact match found
                         path = bmpPath;
-                        break;
+                        break; // No need to check further if an exact match is found
                     }
+
                     if (result.similarity > maxSimilarity)
                     {
                         maxSimilarity = result.similarity;

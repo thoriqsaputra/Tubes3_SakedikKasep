@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public static class KMPAlgorithm
 {
@@ -6,80 +7,95 @@ public static class KMPAlgorithm
     {
         int n = text.Length;
         int m = pattern.Length;
-        int[] b = ComputeBorder(pattern);
+
+        if (m == 0 || n == 0)
+            return (0, -1);
+
+        int[] lps = ComputeLPSArray(pattern);
         int i = 0;
         int j = 0;
 
         double maxSimilarity = 0;
         int bestPosition = -1;
+        List<int> potentialMatches = new List<int>();
 
         while (i < n)
         {
             if (pattern[j] == text[i])
             {
-                if (j == m - 1)
-                {
-                    double similarity = CalculateLevenshteinSimilarity(text.Substring(i - m + 1, m), pattern);
-                    if (similarity > maxSimilarity)
-                    {
-                        maxSimilarity = similarity;
-                        bestPosition = i - m + 1;
-                    }
-                    j = b[j];
-                }
-                else
-                {
-                    i++;
-                    j++;
-                }
-            }
-            else if (j > 0)
-            {
-                j = b[j - 1];
-            }
-            else
-            {
+                j++;
                 i++;
+            }
+
+            if (j == m)
+            {
+                maxSimilarity = 1.0; // Exact match found
+                bestPosition = i - j;
+                return (maxSimilarity, bestPosition); // return percentage
+            }
+            else if (i < n && pattern[j] != text[i])
+            {
+                if (j != 0)
+                    j = lps[j - 1];
+                else
+                    i++;
+            }
+
+            if (j > 0 && j < m)
+            {
+                potentialMatches.Add(i - j);
+            }
+        }
+
+        foreach (var start in potentialMatches)
+        {
+            int end = Math.Min(start + m, n);
+            double similarity = CalculateLevenshteinSimilarity(text.Substring(start, end - start), pattern);
+            if (similarity > maxSimilarity)
+            {
+                maxSimilarity = similarity;
+                bestPosition = start;
             }
         }
 
         return (maxSimilarity, bestPosition);
     }
 
-    public static int[] ComputeBorder(string pattern)
+    private static int[] ComputeLPSArray(string pattern)
     {
-        int[] b = new int[pattern.Length];
-        b[0] = 0;
-
         int m = pattern.Length;
-        int j = 0;
+        int[] lps = new int[m];
+        int len = 0;
         int i = 1;
+
+        lps[0] = 0;
 
         while (i < m)
         {
-            if (pattern[i] == pattern[j])
+            if (pattern[i] == pattern[len])
             {
-                j++;
-                b[i] = j;
+                len++;
+                lps[i] = len;
                 i++;
             }
             else
             {
-                if (j != 0)
+                if (len != 0)
                 {
-                    j = b[j - 1];
+                    len = lps[len - 1];
                 }
                 else
                 {
-                    b[i] = 0;
+                    lps[i] = 0;
                     i++;
                 }
             }
         }
-        return b;
+
+        return lps;
     }
 
-    public static double CalculateLevenshteinSimilarity(string str1, string str2)
+    private static double CalculateLevenshteinSimilarity(string str1, string str2)
     {
         int len1 = str1.Length;
         int len2 = str2.Length;
