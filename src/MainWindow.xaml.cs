@@ -95,7 +95,7 @@ namespace Tubes3_SakedikKasep
                             {
                                 { "NIK", DecryptCaesarCipher(reader["NIK"].ToString(), 4) },
                                 { "tempat_lahir", DecryptCaesarCipher(reader["tempat_lahir"].ToString(), 4) },
-                                { "tanggal_lahir", reader["tanggal_lahir"].ToString() },
+                                { "tanggal_lahir", Convert.ToDateTime(reader["tanggal_lahir"]).ToString("dd-MM-yyyy") },
                                 { "jenis_kelamin", DecryptCaesarCipher(reader["jenis_kelamin"].ToString(), 4) },
                                 { "golongan_darah", DecryptCaesarCipher(reader["golongan_darah"].ToString(), 4) },
                                 { "alamat", DecryptCaesarCipher(reader["alamat"].ToString(), 4) },
